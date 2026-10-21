@@ -8,14 +8,14 @@
   --stage report    汇总为 scores.csv / summary.json
 
 用法（分片跑，可断点续跑）：
-  python -X utf8 run_experiment.py --stage subject --model model-a --arm baseline
+  python -X utf8 run_experiment.py --stage subject --model deepseek-v4.1-flash --arm baseline
   python -X utf8 run_experiment.py --stage judge
   python -X utf8 run_experiment.py --stage report
 
 环境变量（OpenAI 兼容端点即可，任意厂商）：
   EXP_BASE_URL   默认 http://127.0.0.1:4000/v1/chat/completions
   EXP_API_KEY    默认 sk-noauth（本地网关可留空）
-  EXP_MODELS     被试模型清单，逗号分隔（默认 model-a,model-b）
+  EXP_MODELS     被试模型清单，逗号分隔（默认 deepseek-v4.1-flash,glm-5.3-flash）
   EXP_JUDGE_MODEL  盲评模型（默认取 EXP_MODELS 里与被试不同的那个）
 """
 # pyright: reportMissingTypeArgument=false, reportArgumentType=false, reportOperatorIssue=false, reportIndexIssue=false, reportCallIssue=false, reportOptionalSubscript=false, reportUnusedImport=false, reportAny=false, reportUnknownParameterType=false, reportUnknownVariableType=false, reportUnknownMemberType=false, reportUnknownArgumentType=false, reportUnusedCallResult=false, reportImplicitStringConcatenation=false, reportMissingParameterType=false
@@ -48,7 +48,8 @@ MAX_TOKENS = 3000
 TIMEOUT = 240
 
 # 被试模型（建议两条不同族的通道）× 盲评模型（跨族，避免自评偏好）
-SUBJECT_MODELS = [m.strip() for m in os.environ.get("EXP_MODELS", "model-a,model-b").split(",") if m.strip()]
+SUBJECT_MODELS = [m.strip() for m in os.environ.get(
+    "EXP_MODELS", "deepseek-v4.1-flash,glm-5.3-flash").split(",") if m.strip()]
 JUDGE_OF = {m: (os.environ.get("EXP_JUDGE_MODEL") or next((o for o in SUBJECT_MODELS if o != m), m))
             for m in SUBJECT_MODELS}
 

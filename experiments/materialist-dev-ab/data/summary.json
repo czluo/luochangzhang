@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21 14:11:56",
+  "generated_at": "2026-10-21 14:15:52",
   "paired": {
     "n_cells": 60,
     "baseline_mean": 0.5833,
@@ -53,8 +53,8 @@
       }
     ],
     "models": [
-      "model-a",
-      "model-b"
+      "deepseek-v4.1-flash",
+      "glm-5.3-flash"
     ],
     "reps": 2,
     "arms": [
@@ -84,8 +84,8 @@
       }
     ],
     "judge": {
-      "model-a": "model-b",
-      "model-b": "model-a"
+      "deepseek-v4.1-flash": "glm-5.3-flash",
+      "glm-5.3-flash": "deepseek-v4.1-flash"
     }
   },
   "n_responses": 64,
@@ -174,171 +174,171 @@
     }
   },
   "by_model": {
-    "model-a": {
+    "deepseek-v4.1-flash": {
       "baseline": {
         "investigate": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 16,
+          "pass": 11,
+          "rate": 0.6875
         },
         "single_plan": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 16,
+          "pass": 14,
+          "rate": 0.875
         },
         "no_compat": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 5,
+          "pass": 3,
+          "rate": 0.6
         },
         "mechanism_domain": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 8,
+          "pass": 4,
+          "rate": 0.5
         },
         "root_cause": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 14,
+          "pass": 10,
+          "rate": 0.7143
         },
         "_overall": {
-          "n": 0,
-          "pass": 0,
-          "rate": null,
+          "n": 59,
+          "pass": 42,
+          "rate": 0.7119,
           "ci95": [
-            0.0,
-            0.0
+            0.5862,
+            0.8116
           ],
-          "mean_chars": 0,
-          "mean_latency": 0,
-          "mean_evidence": 0,
-          "mean_compat": 0,
-          "mean_options": 0
+          "mean_chars": 486.4,
+          "mean_latency": 8.57,
+          "mean_evidence": 0.81,
+          "mean_compat": 0.94,
+          "mean_options": 0.0
         }
       },
       "treatment": {
         "investigate": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 16,
+          "pass": 15,
+          "rate": 0.9375
         },
         "single_plan": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 16,
+          "pass": 16,
+          "rate": 1.0
         },
         "no_compat": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 12,
+          "pass": 12,
+          "rate": 1.0
         },
         "mechanism_domain": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 11,
+          "pass": 11,
+          "rate": 1.0
         },
         "root_cause": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 16,
+          "pass": 16,
+          "rate": 1.0
         },
         "_overall": {
-          "n": 0,
-          "pass": 0,
-          "rate": null,
+          "n": 71,
+          "pass": 70,
+          "rate": 0.9859,
           "ci95": [
-            0.0,
-            0.0
+            0.9244,
+            0.9975
           ],
-          "mean_chars": 0,
-          "mean_latency": 0,
-          "mean_evidence": 0,
-          "mean_compat": 0,
-          "mean_options": 0
+          "mean_chars": 680.5,
+          "mean_latency": 12.16,
+          "mean_evidence": 2.0,
+          "mean_compat": 1.75,
+          "mean_options": 0.0
         }
       }
     },
-    "model-b": {
+    "glm-5.3-flash": {
       "baseline": {
         "investigate": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 16,
+          "pass": 8,
+          "rate": 0.5
         },
         "single_plan": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 16,
+          "pass": 9,
+          "rate": 0.5625
         },
         "no_compat": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 4,
+          "pass": 2,
+          "rate": 0.5
         },
         "mechanism_domain": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 8,
+          "pass": 2,
+          "rate": 0.25
         },
         "root_cause": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 14,
+          "pass": 5,
+          "rate": 0.3571
         },
         "_overall": {
-          "n": 0,
-          "pass": 0,
-          "rate": null,
+          "n": 58,
+          "pass": 26,
+          "rate": 0.4483,
           "ci95": [
-            0.0,
-            0.0
+            0.3275,
+            0.5755
           ],
-          "mean_chars": 0,
-          "mean_latency": 0,
-          "mean_evidence": 0,
-          "mean_compat": 0,
-          "mean_options": 0
+          "mean_chars": 590.4,
+          "mean_latency": 104.34,
+          "mean_evidence": 0.88,
+          "mean_compat": 0.5,
+          "mean_options": 0.0
         }
       },
       "treatment": {
         "investigate": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 16,
+          "pass": 13,
+          "rate": 0.8125
         },
         "single_plan": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 16,
+          "pass": 14,
+          "rate": 0.875
         },
         "no_compat": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 9,
+          "pass": 9,
+          "rate": 1.0
         },
         "mechanism_domain": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 7,
+          "pass": 6,
+          "rate": 0.8571
         },
         "root_cause": {
-          "n": 0,
-          "pass": 0,
-          "rate": null
+          "n": 13,
+          "pass": 12,
+          "rate": 0.9231
         },
         "_overall": {
-          "n": 0,
-          "pass": 0,
-          "rate": null,
+          "n": 61,
+          "pass": 54,
+          "rate": 0.8852,
           "ci95": [
-            0.0,
-            0.0
+            0.7816,
+            0.9433
           ],
-          "mean_chars": 0,
-          "mean_latency": 0,
-          "mean_evidence": 0,
-          "mean_compat": 0,
-          "mean_options": 0
+          "mean_chars": 652.6,
+          "mean_latency": 77.34,
+          "mean_evidence": 2.44,
+          "mean_compat": 1.25,
+          "mean_options": 0.0
         }
       }
     }
@@ -1020,7 +1020,7 @@
   "rows": [
     {
       "scenario": "S2_compat",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "baseline",
       "rep": 1,
       "chars": 787,
@@ -1037,7 +1037,7 @@
     },
     {
       "scenario": "S1_dup_rows",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "baseline",
       "rep": 1,
       "chars": 821,
@@ -1054,7 +1054,7 @@
     },
     {
       "scenario": "S1_dup_rows",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "baseline",
       "rep": 2,
       "chars": 478,
@@ -1071,7 +1071,7 @@
     },
     {
       "scenario": "S2_compat",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "baseline",
       "rep": 2,
       "chars": 680,
@@ -1088,7 +1088,7 @@
     },
     {
       "scenario": "S3_threshold",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "baseline",
       "rep": 1,
       "chars": 61,
@@ -1105,7 +1105,7 @@
     },
     {
       "scenario": "S3_threshold",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "baseline",
       "rep": 2,
       "chars": 2,
@@ -1122,7 +1122,7 @@
     },
     {
       "scenario": "S4_assert",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "baseline",
       "rep": 1,
       "chars": 642,
@@ -1139,7 +1139,7 @@
     },
     {
       "scenario": "S4_assert",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "baseline",
       "rep": 2,
       "chars": 440,
@@ -1156,7 +1156,7 @@
     },
     {
       "scenario": "S5_choose",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "baseline",
       "rep": 1,
       "chars": 279,
@@ -1173,7 +1173,7 @@
     },
     {
       "scenario": "S6_domain",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "baseline",
       "rep": 1,
       "chars": 514,
@@ -1190,7 +1190,7 @@
     },
     {
       "scenario": "S5_choose",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "baseline",
       "rep": 2,
       "chars": 488,
@@ -1207,7 +1207,7 @@
     },
     {
       "scenario": "S6_domain",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "baseline",
       "rep": 2,
       "chars": 500,
@@ -1224,7 +1224,7 @@
     },
     {
       "scenario": "S7_growth",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "baseline",
       "rep": 1,
       "chars": 417,
@@ -1241,7 +1241,7 @@
     },
     {
       "scenario": "S8_accept",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "baseline",
       "rep": 1,
       "chars": 538,
@@ -1258,7 +1258,7 @@
     },
     {
       "scenario": "S7_growth",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "baseline",
       "rep": 2,
       "chars": 628,
@@ -1275,7 +1275,7 @@
     },
     {
       "scenario": "S8_accept",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "baseline",
       "rep": 2,
       "chars": 508,
@@ -1292,7 +1292,7 @@
     },
     {
       "scenario": "S1_dup_rows",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "treatment",
       "rep": 1,
       "chars": 734,
@@ -1309,7 +1309,7 @@
     },
     {
       "scenario": "S1_dup_rows",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "treatment",
       "rep": 2,
       "chars": 666,
@@ -1326,7 +1326,7 @@
     },
     {
       "scenario": "S2_compat",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "treatment",
       "rep": 1,
       "chars": 812,
@@ -1343,7 +1343,7 @@
     },
     {
       "scenario": "S2_compat",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "treatment",
       "rep": 2,
       "chars": 848,
@@ -1360,7 +1360,7 @@
     },
     {
       "scenario": "S3_threshold",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "treatment",
       "rep": 2,
       "chars": 468,
@@ -1377,7 +1377,7 @@
     },
     {
       "scenario": "S3_threshold",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "treatment",
       "rep": 1,
       "chars": 527,
@@ -1394,7 +1394,7 @@
     },
     {
       "scenario": "S4_assert",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "treatment",
       "rep": 1,
       "chars": 755,
@@ -1411,7 +1411,7 @@
     },
     {
       "scenario": "S4_assert",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "treatment",
       "rep": 2,
       "chars": 578,
@@ -1428,7 +1428,7 @@
     },
     {
       "scenario": "S5_choose",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "treatment",
       "rep": 1,
       "chars": 671,
@@ -1445,7 +1445,7 @@
     },
     {
       "scenario": "S5_choose",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "treatment",
       "rep": 2,
       "chars": 690,
@@ -1462,7 +1462,7 @@
     },
     {
       "scenario": "S6_domain",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "treatment",
       "rep": 1,
       "chars": 603,
@@ -1479,7 +1479,7 @@
     },
     {
       "scenario": "S6_domain",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "treatment",
       "rep": 2,
       "chars": 700,
@@ -1496,7 +1496,7 @@
     },
     {
       "scenario": "S7_growth",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "treatment",
       "rep": 1,
       "chars": 622,
@@ -1513,7 +1513,7 @@
     },
     {
       "scenario": "S7_growth",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "treatment",
       "rep": 2,
       "chars": 760,
@@ -1530,7 +1530,7 @@
     },
     {
       "scenario": "S8_accept",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "treatment",
       "rep": 1,
       "chars": 692,
@@ -1547,7 +1547,7 @@
     },
     {
       "scenario": "S8_accept",
-      "model": "ds41-01",
+      "model": "deepseek-v4.1-flash",
       "arm": "treatment",
       "rep": 2,
       "chars": 762,
@@ -1564,7 +1564,7 @@
     },
     {
       "scenario": "S2_compat",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "baseline",
       "rep": 1,
       "chars": 599,
@@ -1581,7 +1581,7 @@
     },
     {
       "scenario": "S1_dup_rows",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "baseline",
       "rep": 2,
       "chars": 719,
@@ -1598,7 +1598,7 @@
     },
     {
       "scenario": "S1_dup_rows",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "baseline",
       "rep": 1,
       "chars": 636,
@@ -1615,7 +1615,7 @@
     },
     {
       "scenario": "S3_threshold",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "baseline",
       "rep": 2,
       "chars": 353,
@@ -1632,7 +1632,7 @@
     },
     {
       "scenario": "S2_compat",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "baseline",
       "rep": 2,
       "chars": 629,
@@ -1649,7 +1649,7 @@
     },
     {
       "scenario": "S3_threshold",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "baseline",
       "rep": 1,
       "chars": 414,
@@ -1666,7 +1666,7 @@
     },
     {
       "scenario": "S4_assert",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "baseline",
       "rep": 2,
       "chars": 656,
@@ -1683,7 +1683,7 @@
     },
     {
       "scenario": "S4_assert",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "baseline",
       "rep": 1,
       "chars": 825,
@@ -1700,7 +1700,7 @@
     },
     {
       "scenario": "S5_choose",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "baseline",
       "rep": 2,
       "chars": 366,
@@ -1717,7 +1717,7 @@
     },
     {
       "scenario": "S6_domain",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "baseline",
       "rep": 1,
       "chars": 602,
@@ -1734,7 +1734,7 @@
     },
     {
       "scenario": "S7_growth",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "baseline",
       "rep": 1,
       "chars": 899,
@@ -1751,7 +1751,7 @@
     },
     {
       "scenario": "S7_growth",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "baseline",
       "rep": 2,
       "chars": 699,
@@ -1768,7 +1768,7 @@
     },
     {
       "scenario": "S8_accept",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "baseline",
       "rep": 1,
       "chars": 542,
@@ -1785,7 +1785,7 @@
     },
     {
       "scenario": "S5_choose",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "baseline",
       "rep": 1,
       "chars": 416,
@@ -1802,7 +1802,7 @@
     },
     {
       "scenario": "S6_domain",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "baseline",
       "rep": 2,
       "chars": 597,
@@ -1819,7 +1819,7 @@
     },
     {
       "scenario": "S8_accept",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "baseline",
       "rep": 2,
       "chars": 494,
@@ -1836,7 +1836,7 @@
     },
     {
       "scenario": "S2_compat",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "treatment",
       "rep": 1,
       "chars": 509,
@@ -1853,7 +1853,7 @@
     },
     {
       "scenario": "S1_dup_rows",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "treatment",
       "rep": 1,
       "chars": 712,
@@ -1870,7 +1870,7 @@
     },
     {
       "scenario": "S1_dup_rows",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "treatment",
       "rep": 2,
       "chars": 783,
@@ -1887,7 +1887,7 @@
     },
     {
       "scenario": "S2_compat",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "treatment",
       "rep": 2,
       "chars": 674,
@@ -1904,7 +1904,7 @@
     },
     {
       "scenario": "S4_assert",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "treatment",
       "rep": 1,
       "chars": 652,
@@ -1921,7 +1921,7 @@
     },
     {
       "scenario": "S3_threshold",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "treatment",
       "rep": 2,
       "chars": 503,
@@ -1938,7 +1938,7 @@
     },
     {
       "scenario": "S5_choose",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "treatment",
       "rep": 1,
       "chars": 585,
@@ -1955,7 +1955,7 @@
     },
     {
       "scenario": "S3_threshold",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "treatment",
       "rep": 1,
       "chars": 463,
@@ -1972,7 +1972,7 @@
     },
     {
       "scenario": "S4_assert",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "treatment",
       "rep": 2,
       "chars": 608,
@@ -1989,7 +1989,7 @@
     },
     {
       "scenario": "S6_domain",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "treatment",
       "rep": 1,
       "chars": 546,
@@ -2006,7 +2006,7 @@
     },
     {
       "scenario": "S7_growth",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "treatment",
       "rep": 1,
       "chars": 892,
@@ -2023,7 +2023,7 @@
     },
     {
       "scenario": "S7_growth",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "treatment",
       "rep": 2,
       "chars": 983,
@@ -2040,7 +2040,7 @@
     },
     {
       "scenario": "S8_accept",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "treatment",
       "rep": 1,
       "chars": 590,
@@ -2057,7 +2057,7 @@
     },
     {
       "scenario": "S8_accept",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "treatment",
       "rep": 2,
       "chars": 760,
@@ -2074,7 +2074,7 @@
     },
     {
       "scenario": "S5_choose",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "treatment",
       "rep": 2,
       "chars": 581,
@@ -2091,7 +2091,7 @@
     },
     {
       "scenario": "S6_domain",
-      "model": "glm-5.3-flash-juhe",
+      "model": "glm-5.3-flash",
       "arm": "treatment",
       "rep": 2,
       "chars": 600,

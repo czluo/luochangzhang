@@ -40,7 +40,7 @@ code{background:#f2f4f7;padding:1px 5px;border-radius:4px;font-size:13px}
 ul{margin:8px 0 8px 20px;padding:0}li{margin:4px 0}
 </style></head><body><div class="wrap">
 <h1>materialist-dev（原则1.1）效果实验报告</h1>
-<div class="sub">对象：开源 skill <code>materialist-dev</code> · 生成时间 2026-10-21 14:11:15 · 样本 64 条回答 · 判据级样本 249 项</div>
+<div class="sub">对象：开源 skill <code>materialist-dev</code> · 生成时间 2026-10-21 14:15:52 · 样本 64 条回答 · 判据级样本 249 项</div>
 
 <div class="card">
   <h2>一、结论</h2>
@@ -62,11 +62,11 @@ ul{margin:8px 0 8px 20px;padding:0}li{margin:4px 0}
   <table>
     <tr><th style="width:150px">项</th><th>设置</th></tr>
     <tr><td>自变量</td><td>系统提示是否装载 skill（唯一差异；其余提示词逐字相同）</td></tr>
-    <tr><td>被试模型</td><td><code>model-a</code> / <code>model-b</code></td></tr>
+    <tr><td>被试模型</td><td><code>deepseek-v4.1-flash</code> / <code>glm-5.3-flash</code></td></tr>
     <tr><td>场景</td><td>8 个决策陷阱（真实事故抽象）：S1、S2、S3、S4、S5、S6、S7、S8</td></tr>
     <tr><td>重复</td><td>每格 2 次，temperature=0，禁用推理过程输出，400 字内</td></tr>
     <tr><td>判据</td><td>5 条二值判据（pass / fail / na），只算 pass + fail</td></tr>
-    <tr><td>判分方式</td><td><b>跨模型族盲评</b>：model-a 的回答 → model-b 判；model-b 的回答 → model-a 判；判分输入不含组别标签</td></tr>
+    <tr><td>判分方式</td><td><b>跨模型族盲评</b>：deepseek-v4.1-flash 的回答 → glm-5.3-flash 判；glm-5.3-flash 的回答 → deepseek-v4.1-flash 判；判分输入不含组别标签</td></tr>
     <tr><td>主指标</td><td>判据级合规率 = pass / (pass + fail)，Wilson 95% 区间</td></tr>
   </table>
   <h3>8 个陷阱场景</h3>
@@ -109,10 +109,10 @@ ul{margin:8px 0 8px 20px;padding:0}li{margin:4px 0}
 
 <div class="card">
   <h2>五、分模型结果</h2>
-  <svg viewBox="0 0 520 240" class="chart" role="img" aria-label="按模型：合规率（%）"><text x="56" y="16" class="ct">按模型：合规率（%）</text><line x1="56" y1="188.0" x2="504" y2="188.0" class="grid"/><text x="48" y="192.0" class="yl">0%</text><line x1="56" y1="148.0" x2="504" y2="148.0" class="grid"/><text x="48" y="152.0" class="yl">25%</text><line x1="56" y1="108.0" x2="504" y2="108.0" class="grid"/><text x="48" y="112.0" class="yl">50%</text><line x1="56" y1="68.0" x2="504" y2="68.0" class="grid"/><text x="48" y="72.0" class="yl">75%</text><line x1="56" y1="28.0" x2="504" y2="28.0" class="grid"/><text x="48" y="32.0" class="yl">100%</text><rect x="142.0" y="188.0" width="23.0" height="0.0" fill="#98a2b3" rx="2"/><text x="153.5" y="184.0" class="vl">0</text><rect x="168.0" y="188.0" width="23.0" height="0.0" fill="#2f6fed" rx="2"/><text x="179.5" y="184.0" class="vl">0</text><text x="168.0" y="204.0" class="xl">model-a</text><rect x="366.0" y="188.0" width="23.0" height="0.0" fill="#98a2b3" rx="2"/><text x="377.5" y="184.0" class="vl">0</text><rect x="392.0" y="188.0" width="23.0" height="0.0" fill="#2f6fed" rx="2"/><text x="403.5" y="184.0" class="vl">0</text><text x="392.0" y="204.0" class="xl">model-b</text><rect x="56" y="218" width="10" height="10" fill="#98a2b3" rx="2"/><text x="71" y="227" class="lg">baseline</text><rect x="154" y="218" width="10" height="10" fill="#2f6fed" rx="2"/><text x="169" y="227" class="lg">treatment</text></svg>
+  <svg viewBox="0 0 520 240" class="chart" role="img" aria-label="按模型：合规率（%）"><text x="56" y="16" class="ct">按模型：合规率（%）</text><line x1="56" y1="188.0" x2="504" y2="188.0" class="grid"/><text x="48" y="192.0" class="yl">0%</text><line x1="56" y1="148.0" x2="504" y2="148.0" class="grid"/><text x="48" y="152.0" class="yl">25%</text><line x1="56" y1="108.0" x2="504" y2="108.0" class="grid"/><text x="48" y="112.0" class="yl">50%</text><line x1="56" y1="68.0" x2="504" y2="68.0" class="grid"/><text x="48" y="72.0" class="yl">75%</text><line x1="56" y1="28.0" x2="504" y2="28.0" class="grid"/><text x="48" y="32.0" class="yl">100%</text><rect x="142.0" y="74.1" width="23.0" height="113.9" fill="#98a2b3" rx="2"/><text x="153.5" y="70.1" class="vl">71</text><rect x="168.0" y="30.3" width="23.0" height="157.7" fill="#2f6fed" rx="2"/><text x="179.5" y="26.3" class="vl">99</text><text x="168.0" y="204.0" class="xl">deepseek-…</text><rect x="366.0" y="116.3" width="23.0" height="71.7" fill="#98a2b3" rx="2"/><text x="377.5" y="112.3" class="vl">45</text><rect x="392.0" y="46.4" width="23.0" height="141.6" fill="#2f6fed" rx="2"/><text x="403.5" y="42.4" class="vl">89</text><text x="392.0" y="204.0" class="xl">glm-5.3-f…</text><rect x="56" y="218" width="10" height="10" fill="#98a2b3" rx="2"/><text x="71" y="227" class="lg">baseline</text><rect x="154" y="218" width="10" height="10" fill="#2f6fed" rx="2"/><text x="169" y="227" class="lg">treatment</text></svg>
   <table>
     <tr><th>模型</th><th class="num">baseline</th><th class="num">treatment</th><th class="num">差值</th></tr>
-    <tr><td>model-a</td><td class='num'>— <span class='note'>(0/0)</span></td><td class='num'>— <span class='note'>(0/0)</span></td><td class='num '>0.0 pp</td></tr><tr><td>model-b</td><td class='num'>— <span class='note'>(0/0)</span></td><td class='num'>— <span class='note'>(0/0)</span></td><td class='num '>0.0 pp</td></tr>
+    <tr><td>deepseek-v4.1-flash</td><td class='num'>71.2% <span class='note'>(42/59)</span></td><td class='num'>98.6% <span class='note'>(70/71)</span></td><td class='num up'>+27.4 pp</td></tr><tr><td>glm-5.3-flash</td><td class='num'>44.8% <span class='note'>(26/58)</span></td><td class='num'>88.5% <span class='note'>(54/61)</span></td><td class='num up'>+43.7 pp</td></tr>
   </table>
   <p class="note">两模型族方向一致 ⇒ skill 的效果不是某个模型的特例。</p>
 </div>
@@ -124,19 +124,209 @@ ul{margin:8px 0 8px 20px;padding:0}li{margin:4px 0}
     <tr><td>平均输出字数</td><td class='num'>538</td><td class='num'>666</td></tr><tr><td>平均耗时（秒/次）</td><td class='num'>56.5</td><td class='num'>44.8</td></tr><tr><td>递「A/B 选择题」标记（条均）</td><td class='num'>0.00</td><td class='num'>0.00</td></tr><tr><td>兼容类词命中（条均，越低越好）</td><td class='num'>0.72</td><td class='num'>1.50</td></tr><tr><td>调查类词命中（条均，越高越好）</td><td class='num'>0.84</td><td class='num'>2.22</td></tr>
   </table>
   <svg viewBox="0 0 520 220" class="chart" role="img" aria-label="相对输出长度（treatment = 100%）"><text x="56" y="16" class="ct">相对输出长度（treatment = 100%）</text><line x1="56" y1="168.0" x2="504" y2="168.0" class="grid"/><text x="48" y="172.0" class="yl">0%</text><line x1="56" y1="133.0" x2="504" y2="133.0" class="grid"/><text x="48" y="137.0" class="yl">25%</text><line x1="56" y1="98.0" x2="504" y2="98.0" class="grid"/><text x="48" y="102.0" class="yl">50%</text><line x1="56" y1="63.0" x2="504" y2="63.0" class="grid"/><text x="48" y="67.0" class="yl">75%</text><line x1="56" y1="28.0" x2="504" y2="28.0" class="grid"/><text x="48" y="32.0" class="yl">100%</text><rect x="254.0" y="54.9" width="23.0" height="113.1" fill="#98a2b3" rx="2"/><text x="265.5" y="50.9" class="vl">81</text><rect x="280.0" y="28.0" width="23.0" height="140.0" fill="#2f6fed" rx="2"/><text x="291.5" y="24.0" class="vl">100</text><text x="280.0" y="184.0" class="xl">平均输出字数</text><rect x="56" y="198" width="10" height="10" fill="#98a2b3" rx="2"/><text x="71" y="207" class="lg">baseline</text><rect x="154" y="198" width="10" height="10" fill="#2f6fed" rx="2"/><text x="169" y="207" class="lg">treatment</text></svg>
-  <p class="note">旁证只用于交叉验证方向：treatment 输出更长、调查类词更多、兼容类词更少，与判分结果同向。</p>
+  <p class="note">机械代理的**可用性逐条甄别**（只有前两条具方向性）：① 输出长度：treatment 更长，与"说得更完整"同向；
+  ② 调查类词（取证/证据/核实…）：treatment 明显更多，与 C1 同向。③ <b>兼容类词不可用</b>——它把"禁止兼容壳 / 不要标 deprecated"这类<b>否定用法</b>也计入，
+  故 treatment 反而更高（1.50 vs 0.72），不构成反证，也不构成旁证；
+  ④ <b>选择题标记不可用</b>——两臂均为 0.00，说明正则代理未能捕捉"递选择题"的真实形态，已弃用。</p>
 </div>
 
 <div class="card">
   <h2>七、对照实例（原文节选 · 每场景前 420 字）</h2>
   <p class="note">同一问题、同一模型，唯一差别是系统提示是否装载 skill。左侧为 baseline，右侧为 treatment。</p>
   
+      <h3>S1 · 症状反复 · 重复行<span class="tag">deepseek-v4.1-flash</span></h3>
+      <div class="pair">
+        <div class="qa base"><h4>baseline（无 skill）</h4><pre>**结论：加，但只用已有 `dedup_rows()` 做兜底，且必须同时埋点和查根因。不要新写第二套去重，也不要把整行 hash 当去重键。**
+
+**1. 先审 `dedup_rows()`（半天）**
+确认三件事：
+- **去重键**：必须是业务主键（如 `product_id + 日期 + 维度`），不能是整行 hash。整行 hash 会把合法多行（同产品多次销售）静默吞掉，把 0.3% 的数据错误变成看不见的数据丢失。
+- **执行位置**：必须在明细层、聚合前。若在聚合后跑，重复行已经进了 sum/count，去重无效还掩盖问题。
+- **副作用**：是否原地改列表、是否保留“最新一条”、排序是否稳定。不可靠就修它，别绕过。
+
+**2. 止血上线（当天）**
+报表输出前挂一层去重，加配置开关 + 灰度。同时打点 `duplicate_dropped{source,batch}`，按批次/来源维度计数并告警。**没有</pre></div>
+        <div class="qa treat"><h4>treatment（装 skill）</h4><pre>**不加去重逻辑。** 0.3% 是现象，说明产出链路上存在一个条件下必然出重复的机制；加 `dedup_rows()` 兜底只是治现象，而且会造出第二套规则——同一语义两处定义（产出侧写入 vs 消费侧去重），必然漂移，`dedup_rows()` 也就永远删不掉。
+
+**第一步：取证（半天，能出结论）**
+1. 捞 20~30 条重复对，逐字段比对：全字段相同 ⇒ 重复写入；仅批次号/时间戳/自增 id 不同 ⇒ 同一条记录被写两次；部分字段不同 ⇒ join 或分页放大。
+2. 对齐产出链路：并发度、重试/超时重发日志、上游分页边界（`&gt;=` vs `&gt;`）、任务重跑。查清 0.3% 集中在哪个条件（重跑日？并发窗口？特定产品？）——条件即外因链。
+3. `grep dedup_rows`：有几处定义、几处调用、它是历史兜底还是唯一防线。判定对象是**下游实际消费的那一份**（若消费前有包装/改写，取改写前∪改写后）。
+
+</pre></div>
+      </div>
+      <h3>S2 · 兼容壳诱惑 · 配置拆分<span class="tag">deepseek-v4.1-flash</span></h3>
+      <div class="pair">
+        <div class="qa base"><h4>baseline（无 skill）</h4><pre>**结论：不要保留 deprecated 的 `timeout`，直接一次性硬替换。**
+
+理由：
+
+1. **全是自有代码、30 处引用**——这是典型可一次性机械迁移的规模，IDE 全局重命名 + 逐处确认语义，一两个小时内能完成，留兼容层反而多一轮返工。
+2. **拆分的本质是语义歧义**。旧的 `timeout` 到底映射到 `nav_timeout` 还是 `elem_timeout`？无论你怎么映射，都必然在一半场景下是错的。留一个 deprecated 字段，等于留一个&quot;看起来能跑但语义不对&quot;的坑，比编译报错危险得多。
+3. **兼容层只在有外部消费者时才值钱**（第三方插件、用户配置文件、SDK）。你们没有这个约束，deprecated 周期纯粹是自增债务。
+
+执行建议：
+
+- 先 grep 全部 30 处，按调用点归类：导航类（`goto`/`waitForNavigation`/`reload`）→ `nav</pre></div>
+        <div class="qa treat"><h4>treatment（装 skill）</h4><pre>**结论：不保留，不标 deprecated，同一批改彻底删掉 `timeout`。**
+
+理由：30 处引用全部是本仓自有代码，不存在外部契约（跨仓调用方、已发布 API、不可同批改的上游产物），所以「先并存、下版再删」不成立——它只是&quot;改不彻底&quot;的伪装。并存跨过一个版本，就等于出现第二套规则：新代码会继续写 `timeout`，旧的 `timeout` 会继续被读取，两套规则各自漂移，最后没人说得清哪一份是真正生效的。这样改的代价是永久维护，并没有换来过渡期。
+
+执行顺序：
+
+1. **先调查（不要直接改）**：把 30 处引用逐条列出，标注每一处实际控制的是哪一类等待——页面导航、元素等待，还是两者都不是（如脚本执行、网络空闲、断言轮询）。凡是无法归类的，就不能强行分进这两类，说明你的两个字段还不完整；要给恒定的真身，避免随意截取。同时查清默认值来源：环境变量、CI 配置、文档里是否有 `timeout=` 字样，这些也要</pre></div>
+      </div>
+      <h3>S3 · 阈值来源 · 超时设多少<span class="tag">deepseek-v4.1-flash</span></h3>
+      <div class="pair">
+        <div class="qa base"><h4>baseline（无 skill）</h4><pre>**15 秒**
+
+（覆盖观测到的最慢 12.4 秒并留约 20% 余量；剩余 1% 长尾用重试/降级兜底，别再往上调。）</pre></div>
+        <div class="qa treat"><h4>treatment（装 skill）</h4><pre>**不能只给一个数：这个来源提供不了答案。**
+
+超时是**契约侧的边界**，应该由谁来等待、等待多久来决定；它并非「实测多慢」的现象边界。把 12.4s 乘以系数当作阈值，属于典型经验主义，本质上是把「我看到的」当成「必然如此」；样本里没出现的 20s 长表，照样会让它超时。
+
+定值前必须先查三件事（缺一即为猜）：
+
+1. **上游 deadline**：整条链路给本段多少预算。有契约 ⇒ timeout = 该预算（规律档，不需要余量），这是唯一正当来源。
+2. **12.4s 那次的机制**：大表、重试叠加、GC 或排队，哪个造成的？机制不同，长尾形态不同，阈值定义域也不同。
+3. **200 次的覆盖面**：p99 是多少？12.4 是孤点还是尾部？有没有覆盖超大表？样本不覆盖，任何分位数都无效。
+
+如果今天必须上线，就给 **15s**，但必须同批标注：**假设（经验性）**、影响面（超过 15s 的样本比例）、退出条</pre></div>
+      </div>
+      <h3>S4 · 先下结论 · 要不要换技术栈<span class="tag">deepseek-v4.1-flash</span></h3>
+      <div class="pair">
+        <div class="qa base"><h4>baseline（无 skill）</h4><pre>初步判断：**不要整体替换，按目标站点分层。**
+
+**保留 Playwright 的情况**
+- 目标页的核心数据由 JS 渲染（SPA、无限滚动、懒加载）
+- 有反爬挑战（Cloudflare、验证码、指纹检测）
+- 需要登录态、复杂交互、点击后才出数据
+- 要走浏览器行为做风控规避
+
+**迁移到 requests + lxml 值得做的**
+- 数据直接在 HTML 里（服务端渲染），或能定位到后端 JSON 接口
+- 高并发、大批量抓取，成本敏感
+- 只需要 cookie/header 即可通过
+
+**收益量级**：纯 HTML 解析场景，requests 单机吞吐通常比 Playwright 高一个数量级，内存和 CPU 占用也低很多，部署可无头环境依赖。但前提是&quot;能拿到目标 HTML&quot;。
+
+**建议路径**
+1. 先抽查 3–5 个目标站点：关掉 JS 看数据是否还在，或用 DevTools 找 XHR 接口
+2. </pre></div>
+        <div class="qa treat"><h4>treatment（装 skill）</h4><pre>不能给“初步看法”。这类判断一旦出口就会成为决策依据，而目前还没有任何取证依据，属于先发言后补证；这正是需要避免的。
+
+**先把主要矛盾找对**：这里要解决的主要矛盾是**目标数据在哪一层生成，而不是选 Playwright 还是 requests**：它由浏览器执行 JS 后产生，还是由服务端直接以 JSON 或 HTML 下发。这决定“能不能换”。所以先查四件事，每件都对应一个判定：
+
+1. **关掉 JS 后拿到什么**（Playwright `context` 禁 JS，或用 `curl` 抓原始 HTML）：目标字段是否已在 HTML 里。如果在，Playwright 也没有解决真正问题，只是额外负担。
+2. **Network 面板里数据出自哪个响应**：若字段来自 XHR 或 fetch 的 JSON 接口，正确做法通常是**直接请求该接口**（requests，连 lxml 都不需要），而不是 “requests</pre></div>
+      </div>
+      <h3>S5 · 两案择一 · 开关还是重构<span class="tag">deepseek-v4.1-flash</span></h3>
+      <div class="pair">
+        <div class="qa base"><h4>baseline（无 skill）</h4><pre>时间紧推荐 **A**，但必须把它当“临时兼容开关”，不是长期方案。
+
+理由：3 行改动风险面小、可快速回滚；200 行合并路径虽干净，但时间紧时测试覆盖不足，容易引入回归。
+
+执行建议：
+1. 开关放在最外层调用边界，默认走新路径，`legacy=True` 才走旧路径；
+2. 明确作用域：按租户/配置/调用方，不要全局隐式判断；
+3. 加日志/指标统计 legacy 命中量；
+4. 补两类测试：开关开/关各一条主链路；
+5. 建清理工单，写死移除日期和负责人。
+
+例外：如果两条路径已经造成数据不一致、资损或安全问题，不能拖，选 B 或先止血再重构。</pre></div>
+        <div class="qa treat"><h4>treatment（装 skill）</h4><pre>**推荐 B。** 时间紧不能作为接受 A 的正当理由。§3 已明确规定：是否“最小/过渡”不是判断依据。选 A 等于承认并保留两套规则：`legacy` 开关一旦加上，往往没人再删；后续每次改动都要在两套规则上各改一遍，缺陷也要修两遍。而且如你所说，这种路径“漂移”得越久，删除的代价越高，时间只会更紧。
+
+**先取证再动手**（§2）：grep `legacy` 实际调用点有几个？如果只有一两个，改调用方本身就要 3 行，加开关也要 3 行，成本大致相当，A 省下的时间并不存在。如果调用点确实多到无法在同一批修改中全部改完，就先判断原因：如果调用方是**跨仓调用方/已发布 API**，这可以作为唯一例外；但要同批登记退出条件（责任人、删除条件、期限），否则就是永久保留的第二套规则。如果是本仓内部的代码，那就只是需要修改的数量多；借这个理由保留兼容壳，并不成立。
+
+**B 的落地方式（不是“先并存、以后再删”）：**
+1. 先把</pre></div>
+      </div>
+      <h3>S6 · 规则跨域套用 · 500 行上限<span class="tag">deepseek-v4.1-flash</span></h3>
+      <div class="pair">
+        <div class="qa base"><h4>baseline（无 skill）</h4><pre>不要直接照抄。500 行是经验阈值，不是通用真理；直接搬过去最常见的结果是：为了“合规”把高内聚的模块机械切碎，耦合和跳转反而变多。
+
+建议做法：
+
+1. **抄意图不抄数字**。真正要管的是“单文件是否已难以理解和审查”，而不是行数本身。新项目先按 500 行只做告警、不做卡点，跑一两个迭代再看实际分布，再定阈值（不同语言差异很大，比如 Java/Go 和 Python/TSX 不该同一标准）。
+
+2. **明确例外清单**。自动生成代码、配置、迁移脚本、类型声明、测试数据、单文件组件等默认豁免，否则规则第一天就会被绕过。
+
+3. **定义“行”和“拆”**。空行、注释是否计入；拆分应按职责边界，而不是按行数切。规则里要写“超过阈值需在评审中说明理由并给出拆分计划”，而不是“必须立即拆”。
+
+4. **用工具落地**。ESLint/Checkstyle 等设阈值告警，CI 只对新增文件卡点，存量不追溯，避免一上来就制造大量无意</pre></div>
+        <div class="qa treat"><h4>treatment（装 skill）</h4><pre>**不能直接抄。** 这是把旧规则跨定义域套用的典型情况（教条主义）；「历来如此」不构成理由。
+
+可执行步骤：
+
+1. **先调查原规则的来历**：500 行是怎么来的？是推算出来的（例如「超过 X 行后评审漏检率显著上升」「单文件承载概念数 &gt; 1」），还是「跑过的最大文件 × 系数」？
+   - 如果无法说出推导式，那它就是**经验性阈值**（对无知的量化）。抄过去时必须显式标 `假设(经验性)`，并写明影响面和退出条件以及晋升条件；直接当成普适常量即违例。
+
+2. **查新项目定义域是否仍成立**：同一对矛盾（可读性 vs 概念聚合、评审规模、上下文窗口）在新项目是否存在？语言、框架、文件粒度不同，行数与可维护性的相关性会变；例如 Java 一个类 500 行和 YAML 500 行完全不是一回事。机制不成立的场景，抄过去只是形式统一，实际无益。
+
+3. **更彻底的做法**：行数只是代理指标，直接的原因是「一个文件承载了</pre></div>
+      </div>
+      <h3>S7 · 维护点爆炸 · 5 处清单<span class="tag">deepseek-v4.1-flash</span></h3>
+      <div class="pair">
+        <div class="qa base"><h4>baseline（无 skill）</h4><pre>根因不是“清单太多”，而是同一份数据源元数据散落在 5 处。不要靠 checklist，改成单一事实源。
+
+建议：
+1. 建一个 `datasource.manifest.yaml`（或 TS 常量），声明 id、路由、参数校验 schema、文档描述、样例/测试夹具。
+2. 枚举/类型、路由、校验、文档尽量从 manifest 生成或运行时注册；至少让这 5 处都引用同一 registry，禁止硬编码。
+3. 测试改为参数化：遍历 registry 自动跑基础契约测试；新增源只补该源特有测试。
+4. CI 加两道闸：生成物与 manifest 不一致则失败；启动时校验 registry 完整性，缺字段直接报错。
+5. 过渡期加 lint/单测扫描，发现新增枚举但未注册 manifest 就失败。
+
+判断：先做“单一 registry + 启动校验 + 参数化测试”，成本最低、立刻止血；再逐步 codegen 文档和路由。</pre></div>
+        <div class="qa treat"><h4>treatment（装 skill）</h4><pre>**诊断**：主要矛盾不是&quot;漏改&quot;，而是&quot;数据源&quot;这个概念有 **5 处真身**——5 套清单各自定义同一语义，漏改是必然产物。加 checklist、加 CI 提醒都是给现象打补丁，下一轮还会漏。
+
+**方案：收敛为单一真身 registry，其余 4 处全部改为派生（同批删除旧清单，不留并存壳）**
+
+| 处 | 改法 |
+|---|---|
+| 枚举 | 改由 registry key 派生类型，不再手写 |
+| 路由 | 遍历 registry 注册，删手写路由表 |
+| 校验 | 校验器挂在条目上，调度从 registry 取 |
+| 文档 | 脚本从 registry 生成，禁止手写 |
+| 测试 | 参数化遍历 registry（&quot;每源必过 X&quot;），删每源手写 case |
+
+每个数据源一个声明式条目（id / 路由 / 校验函数 / 示例载荷），代码即真身。
+
+**判据**：新增数据源只改 1 处；维护点恒为 1</pre></div>
+      </div>
+      <h3>S8 · 验收判据 · 怎么算修好<span class="tag">deepseek-v4.1-flash</span></h3>
+      <div class="pair">
+        <div class="qa base"><h4>baseline（无 skill）</h4><pre>测试通过只能说明“这个用例不再失败”，不等于 bug 修好了。建议按下面几条验收：
+
+1. **原复现路径能稳定复现不出来了**：用最初报障的步骤、数据、账号、环境手动走一遍；如果做不到，至少用一条自动化回归用例覆盖这个场景，并把它加入 CI。
+
+2. **根因级验证**：确认修的是原因而不是现象。能说清“原来为什么会错、改动如何消除这个原因、有没有依赖巧合（比如顺序、时序、缓存）”。
+
+3. **边界与相邻场景**：同一函数的空值、极值、并发、重试、异常分支都要过一遍。缺陷通常成对出现，检查同类代码有没有相同写法。
+
+4. **回归范围**：跑受影响模块的既有用例；如果改的是公共逻辑，扩大范围。同时确认没引入性能、兼容性、数据格式上的变化。
+
+5. **线上验证**：灰度或小流量发布，用日志和监控确认错误率、关键指标回到正常，且原报错不再出现。最好能定位到“这次改动上线后该错误计数为 0”。
+
+6. **可回滚**：明确出问题</pre></div>
+        <div class="qa treat"><h4>treatment（装 skill）</h4><pre>**「测试过了」只证明症状消失，不证明矛盾消解。** 按下面三步验收，任何一步过不了，就说明还没修好。
+
+**1. 定矛盾：先写下这个 bug 是「哪对矛盾」在什么条件下爆的**
+不许写「点击保存报错 500」，要写：「同一语义被 X、Y 两处定义，条件 Z 下两处不一致」。判据：**原矛盾是否消解、引爆条件是否消除**，而不是「用例是否变绿」。
+
+**2. 查真身：grep 定义点，数「有几处」**
+- 搜符号名 / 配置键 / 规则文本，列出全部定义点。仍 &gt;1 处 ⇒ 你修的是现象，矛盾会转移（换个入口再爆）。
+- **理想的结果是：删掉的那份定义，让症状自然消失**，而不是新增判断、开关或兜底。
+- 同批检查：旧字段 / 旧参数 / 旧分支 / `deprecated` 兼容壳是否**同时消失**？残留 = 第二套规则，迟早漂移。
+
+**3. 修个例查两件事**
+- **同型**：grep 同构调用 / 同类型代码，确认</pre></div>
+      </div>
 </div>
 
 <div class="card">
   <h2>八、局限与不可外推的部分</h2>
   <ul>
-    <li><b>判分者与被判者同代</b>：已做跨族 + 盲评，但两族共享部分偏好，可能同向偏差；故同时给出机械旁证，两者同向才下强结论。</li>
+    <li><b>判分者与被判者同代</b>：已做跨族 + 盲评，但两族共享部分偏好，可能同向偏差；机械旁证只能作弱交叉验证（见第六节，两条代理有效、两条已弃用），强结论仍依赖判据定义的可机械性。</li>
     <li><b>场景是合成的</b>：8 个陷阱由真实事故抽象，但仍是"选择题式"提问，比真实对话更易触发纪律 ⇒ 结论只外推到「同类疑难决策」，不覆盖日常编码。</li>
     <li><b>未测成本</b>：treatment 的系统提示显著更长（skill 真身约 5k 字符），本实验<b>不计 token 成本与延迟代价</b>；本次 treatment 平均耗时 44.8s vs baseline 56.5s，仅供参考。</li>
     <li><b>样本量</b>：64 条回答，判据级 249 项；区间宽度见上，结论按「方向 + 幅度区间」表述。</li>

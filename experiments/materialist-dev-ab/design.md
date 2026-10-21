@@ -18,7 +18,7 @@ H1（备择）：装 skill 组的「可机械判定的合规率」高于对照�
 | 维度 | 设置 | 理由 |
 |---|---|---|
 | 自变量 | 系统提示是否装载 skill（`baseline` 无 / `treatment` 有） | 唯一差异源；其余提示词逐字相同 |
-| 被试 | `ds41-01`（DeepSeek V4.1 Flash 通道）、`glm-5.3-flash-juhe`（GLM 5.3 Flash） | 跨两族，避免"只对某个模型有效" |
+| 被试 | `deepseek-v4.1-flash`、`glm-5.3-flash` | 跨两族，避免"只对某个模型有效" |
 | 场景 | 8 个决策陷阱（下表） | 每场景都埋了"最小改法 / 凭经验 / 打补丁"的引诱 |
 | 重复 | 每格 2 次（temperature=0，仍可能因上游采样产生差异） | 观察同组内部稳定性 |
 | 规模 | 8 场景 × 2 模型 × 2 组 × 2 次 = **64 条回答** | 单组 32 条，可按判据维度做比例比较 |
@@ -53,7 +53,7 @@ H1（备择）：装 skill 组的「可机械判定的合规率」高于对照�
 
 ## 五、评分方式（防"自己判自己"）
 
-- 判分由**另一模型族**执行：`ds41-01` 的回答交给 `glm-5.3-flash-juhe` 判，反之交给 `ds41-02`；
+- 判分由**另一模型族**执行：`deepseek-v4.1-flash` 的回答交给 `glm-5.3-flash` 判，`glm-5.3-flash` 的回答交给 `deepseek-v4.1-flash` 判；
 - 判分输入**不含组别标签**（盲评），只给「场景问题 + 回答 + 判据定义」；
 - 判分要求只输出一行 JSON；解析失败重试 3 次，仍失败则丢弃并记数；
 - 机械旁证（不参与主结论，用于交叉验证）：输出字数、`A/B/选项` 标记数（递选择题倾向）、兼容词命中数、调查类词命中数、耗时。
@@ -69,10 +69,10 @@ H1（备择）：装 skill 组的「可机械判定的合规率」高于对照�
 
 ```bash
 # 采集（分片 · 断点续跑 · 每片 16 次调用）：--model 可选任意两个模型，--arm 二选一
-python run_experiment.py --stage subject --model ds41-01 --arm baseline
-python run_experiment.py --stage subject --model ds41-01 --arm treatment
-python run_experiment.py --stage subject --model glm-5.3-flash-juhe --arm baseline
-python run_experiment.py --stage subject --model glm-5.3-flash-juhe --arm treatment
+python run_experiment.py --stage subject --model deepseek-v4.1-flash --arm baseline
+python run_experiment.py --stage subject --model deepseek-v4.1-flash --arm treatment
+python run_experiment.py --stage subject --model glm-5.3-flash --arm baseline
+python run_experiment.py --stage subject --model glm-5.3-flash --arm treatment
 
 # 盲评（跨族 · 可续跑 · 单批限量避免长任务）与汇总
 python run_experiment.py --stage judge --limit 14

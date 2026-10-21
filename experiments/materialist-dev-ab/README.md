@@ -13,8 +13,8 @@
 |---|---|---|---|
 | 判据级合规率 | 58.1%（68/117） | **93.9%**（124/132） | **+35.8 pp** |
 | 配对分析（同一单元两侧对应） | 58.3% | 92.5% | +34.2 pp（改善 25 / 持平 33 / 变差 2） |
-| 模型 A（DeepSeek V4.1 Flash 通道） | 69.5% | 98.6% | +29.1 pp |
-| 模型 B（GLM 5.3 Flash 通道） | 41.7% | 86.9% | +45.2 pp |
+| `deepseek-v4.1-flash` | 71.2% | 98.6% | +27.4 pp |
+| `glm-5.3-flash` | 44.8% | 88.5% | +43.7 pp |
 
 分判据（差距最大的两档）：
 
@@ -33,22 +33,22 @@
 
 ## 三、自己复现
 
-任何 OpenAI 兼容端点都能跑（本次用的是本地模型路由，两条不同厂商的通道）。
+任何 OpenAI 兼容端点都能跑（本次用的是本地模型路由，两条不同厂商的通道，模型名 = 官方名）。
 
 ```bash
 export EXP_BASE_URL="https://your-endpoint/v1/chat/completions"
 export EXP_API_KEY="sk-..."
-export EXP_MODELS="model-a,model-b"        # 两条不同族的通道
-# export EXP_JUDGE_MODEL="model-b"          # 可选：指定盲评模型（默认取另一条）
-# export EXP_SKILL_LANG="zh"                # zh 用 SKILL.md，en 用 SKILL.en.md
+export EXP_MODELS="deepseek-v4.1-flash,glm-5.3-flash"   # 两条不同族的模型
+# export EXP_JUDGE_MODEL="glm-5.3-flash"                 # 可选：指定盲评模型（默认取另一条）
+# export EXP_SKILL_LANG="zh"                             # zh 用 SKILL.md，en 用 SKILL.en.md
 ```
 
 ```bash
 # 1) 采集（4 片，可断点续跑：已完成的记录会跳过）
-python run_experiment.py --stage subject --model model-a --arm baseline
-python run_experiment.py --stage subject --model model-a --arm treatment
-python run_experiment.py --stage subject --model model-b --arm baseline
-python run_experiment.py --stage subject --model model-b --arm treatment
+python run_experiment.py --stage subject --model deepseek-v4.1-flash --arm baseline
+python run_experiment.py --stage subject --model deepseek-v4.1-flash --arm treatment
+python run_experiment.py --stage subject --model glm-5.3-flash --arm baseline
+python run_experiment.py --stage subject --model glm-5.3-flash --arm treatment
 
 # 2) 盲评（跨族，单批限量，反复跑到 judge 完成）
 python run_experiment.py --stage judge --limit 14
@@ -66,7 +66,7 @@ python render_report.py
 ## 四、诚实边界（这些结论**没有**被证明）
 
 1. **不证明产出代码更正确、项目更成功** —— 只证明 5 条可机械判定的决策纪律，其合规率显著提升。
-2. **判分者与被判者是同代模型**：已跨族 + 盲评，但两族仍共享部分偏好 ⇒ 同时报告机械旁证（字数、调查类词、兼容类词、选择题标记），两者同向才下强结论。
+2. **判分者与被判者是同代模型**：已跨族 + 盲评，但两族仍共享部分偏好 ⇒ 机械旁证只作弱交叉验证，且须逐条甄别：输出字数、调查类词具方向性；**兼容类词与选择题标记不具区分力**（前者把「禁止兼容」的否定用法也计入，后者两臂均为 0），已在报告中标注弃用。
 3. **场景是合成的**：由真实事故抽象而来，但仍是「选择题式」提问，比真实对话更易触发纪律 ⇒ 只外推到同类疑难决策。
 4. **未测成本**：treatment 的系统提示约 5k 字符（skill 真身全量），本实验**不计 token 成本**；耗时差异仅供参考。
 5. **样本量**：64 条回答 / 249 个判据级观测，区间宽度见报告，结论按「方向 + 幅度区间」表述。
