@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>materialist-dev（原则1.1）效果实验报告</title>
+<style>
+:root{--ink:#1a1d23;--muted:#6b7280;--line:#e3e7ee;--bg:#fff;--base:#98a2b3;--treat:#2f6fed;--good:#12a150;--bad:#e5484d}
+*{box-sizing:border-box}
+body{margin:0;background:#f7f8fa;color:var(--ink);font:15px/1.7 -apple-system,"Segoe UI","Microsoft YaHei",system-ui,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:36px 28px 80px}
+h1{font-size:30px;line-height:1.3;margin:0 0 6px}
+.sub{color:var(--muted);font-size:14px;margin-bottom:28px}
+.card{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin:0 0 20px;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+h2{font-size:20px;margin:0 0 14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+h3{font-size:16px;margin:20px 0 10px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#fafbfc;font-weight:600;color:#344054}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kpi{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:#fff}
+.kpi .v{font-size:26px;font-weight:700;font-variant-numeric:tabular-nums}
+.kpi .l{color:var(--muted);font-size:12.5px}
+.up{color:var(--good)}.down{color:var(--bad)}
+.chart{width:100%;height:auto;display:block;margin:6px 0 4px}
+.ct{font-size:13px;font-weight:600;fill:#344054}
+.xl{font-size:11.5px;fill:#475467}.yl{font-size:10.5px;fill:#98a2b3;text-anchor:end}
+.vl{font-size:10.5px;fill:#475467;text-anchor:middle}.lg{font-size:11.5px;fill:#475467}
+.grid{stroke:#eef1f6;stroke-width:1}
+.grid text{font-size:10.5px;fill:#98a2b3}
+.legend{display:flex;gap:18px;font-size:12.5px;color:var(--muted);margin:4px 0 10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0 22px}
+.qa{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:#fff}
+.qa h4{margin:0 0 8px;font-size:13px;letter-spacing:.02em;text-transform:uppercase;color:var(--muted)}
+.qa.base{border-left:3px solid var(--base)}.qa.treat{border-left:3px solid var(--treat)}
+.qa pre{white-space:pre-wrap;word-break:break-word;margin:0;font:13px/1.65 ui-monospace,Consolas,monospace;color:#334155}
+.tag{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:99px;border:1px solid var(--line);color:var(--muted);margin-left:6px}
+.note{color:var(--muted);font-size:13px}
+code{background:#f2f4f7;padding:1px 5px;border-radius:4px;font-size:13px}
+ul{margin:8px 0 8px 20px;padding:0}li{margin:4px 0}
+</style></head><body><div class="wrap">
+<h1>materialist-dev（原则1.1）效果实验报告</h1>
+<div class="sub">对象：开源 skill <code>materialist-dev</code> · 生成时间 2026-10-21 14:11:15 · 样本 64 条回答 · 判据级样本 249 项</div>
+
+<div class="card">
+  <h2>一、结论</h2>
+  <div class="kpis">
+    <div class="kpi"><div class="v">58.1%</div><div class="l">baseline 合规率</div></div>
+    <div class="kpi"><div class="v up">93.9%</div><div class="l">treatment 合规率</div></div>
+    <div class="kpi"><div class="v up">+35.8 pp</div><div class="l">绝对提升</div></div>
+    <div class="kpi"><div class="v">88.5%–96.9%</div><div class="l">treatment 的 Wilson 95% 区间</div></div>
+  </div>
+  <p style="margin-top:16px">在 8 类决策陷阱、2 个模型族、共 64 条回答上，
+  装上 skill 后判据级合规率由 <b>58.1%</b>（68/117）提升到 <b>93.9%</b>（124/132），
+  绝对提升 <b>35.8 个百分点</b>；两模型方向一致。</p>
+  <div class="legend"><span><i style="background:#98a2b3"></i>baseline（无 skill）</span><span><i style="background:#2f6fed"></i>treatment（装 skill）</span></div>
+  <svg viewBox="0 0 520 220" class="chart" role="img" aria-label="判据级合规率（%）"><text x="56" y="16" class="ct">判据级合规率（%）</text><line x1="56" y1="168.0" x2="504" y2="168.0" class="grid"/><text x="48" y="172.0" class="yl">0%</text><line x1="56" y1="133.0" x2="504" y2="133.0" class="grid"/><text x="48" y="137.0" class="yl">25%</text><line x1="56" y1="98.0" x2="504" y2="98.0" class="grid"/><text x="48" y="102.0" class="yl">50%</text><line x1="56" y1="63.0" x2="504" y2="63.0" class="grid"/><text x="48" y="67.0" class="yl">75%</text><line x1="56" y1="28.0" x2="504" y2="28.0" class="grid"/><text x="48" y="32.0" class="yl">100%</text><rect x="254.0" y="86.6" width="23.0" height="81.4" fill="#98a2b3" rx="2"/><text x="265.5" y="82.6" class="vl">58</text><rect x="280.0" y="36.5" width="23.0" height="131.5" fill="#2f6fed" rx="2"/><text x="291.5" y="32.5" class="vl">94</text><text x="280.0" y="184.0" class="xl">全部回答</text><rect x="56" y="198" width="10" height="10" fill="#98a2b3" rx="2"/><text x="71" y="207" class="lg">baseline（无 skill）</text><rect x="235" y="198" width="10" height="10" fill="#2f6fed" rx="2"/><text x="250" y="207" class="lg">treatment（装 skill）</text></svg>
+</div>
+
+<div class="card">
+  <h2>二、实验方法</h2>
+  <table>
+    <tr><th style="width:150px">项</th><th>设置</th></tr>
+    <tr><td>自变量</td><td>系统提示是否装载 skill（唯一差异；其余提示词逐字相同）</td></tr>
+    <tr><td>被试模型</td><td><code>model-a</code> / <code>model-b</code></td></tr>
+    <tr><td>场景</td><td>8 个决策陷阱（真实事故抽象）：S1、S2、S3、S4、S5、S6、S7、S8</td></tr>
+    <tr><td>重复</td><td>每格 2 次，temperature=0，禁用推理过程输出，400 字内</td></tr>
+    <tr><td>判据</td><td>5 条二值判据（pass / fail / na），只算 pass + fail</td></tr>
+    <tr><td>判分方式</td><td><b>跨模型族盲评</b>：model-a 的回答 → model-b 判；model-b 的回答 → model-a 判；判分输入不含组别标签</td></tr>
+    <tr><td>主指标</td><td>判据级合规率 = pass / (pass + fail)，Wilson 95% 区间</td></tr>
+  </table>
+  <h3>8 个陷阱场景</h3>
+  <table>
+    <tr><th style="width:70px">ID</th><th>场景</th><th style="width:110px">埋的引诱</th></tr>
+    <tr><td>S1</td><td>症状反复 · 重复行</td><td class='note'>dup_rows</td></tr><tr><td>S2</td><td>兼容壳诱惑 · 配置拆分</td><td class='note'>compat</td></tr><tr><td>S3</td><td>阈值来源 · 超时设多少</td><td class='note'>threshold</td></tr><tr><td>S4</td><td>先下结论 · 要不要换技术栈</td><td class='note'>assert</td></tr><tr><td>S5</td><td>两案择一 · 开关还是重构</td><td class='note'>choose</td></tr><tr><td>S6</td><td>规则跨域套用 · 500 行上限</td><td class='note'>domain</td></tr><tr><td>S7</td><td>维护点爆炸 · 5 处清单</td><td class='note'>growth</td></tr><tr><td>S8</td><td>验收判据 · 怎么算修好</td><td class='note'>accept</td></tr>
+  </table>
+  <h3>5 条判据</h3>
+  <table>
+    <tr><th style="width:70px">ID</th><th style="width:180px">判据</th><th>fail 的典型形态</th></tr>
+    <tr><td>C1</td><td>调查先行</td><td class='note'>拒绝无证据下结论</td></tr><tr><td>C2</td><td>唯一彻底方案</td><td class='note'>不递 A/B 选择题、不推最小改法</td></tr><tr><td>C3</td><td>禁兼容壳</td><td class='note'>同批改彻底，不留 deprecated 并存</td></tr><tr><td>C4</td><td>矛盾+推导+定义域</td><td class='note'>阈值/规则说得出来源</td></tr><tr><td>C5</td><td>定位真身/抽不变式</td><td class='note'>不打补丁、不加开关兜底</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>三、分判据结果</h2>
+  <svg viewBox="0 0 520 260" class="chart" role="img" aria-label="按判据：合规率（%）"><text x="56" y="16" class="ct">按判据：合规率（%）</text><line x1="56" y1="208.0" x2="504" y2="208.0" class="grid"/><text x="48" y="212.0" class="yl">0%</text><line x1="56" y1="163.0" x2="504" y2="163.0" class="grid"/><text x="48" y="167.0" class="yl">25%</text><line x1="56" y1="118.0" x2="504" y2="118.0" class="grid"/><text x="48" y="122.0" class="yl">50%</text><line x1="56" y1="73.0" x2="504" y2="73.0" class="grid"/><text x="48" y="77.0" class="yl">75%</text><line x1="56" y1="28.0" x2="504" y2="28.0" class="grid"/><text x="48" y="32.0" class="yl">100%</text><rect x="74.8" y="101.1" width="23.0" height="106.9" fill="#98a2b3" rx="2"/><text x="86.3" y="97.1" class="vl">59</text><rect x="100.8" y="50.5" width="23.0" height="157.5" fill="#2f6fed" rx="2"/><text x="112.3" y="46.5" class="vl">88</text><text x="100.8" y="224.0" class="xl">调查先行</text><rect x="164.4" y="78.6" width="23.0" height="129.4" fill="#98a2b3" rx="2"/><text x="175.9" y="74.6" class="vl">72</text><rect x="190.4" y="39.2" width="23.0" height="168.8" fill="#2f6fed" rx="2"/><text x="201.9" y="35.2" class="vl">94</text><text x="190.4" y="224.0" class="xl">唯一彻底方案</text><rect x="254.0" y="108.0" width="23.0" height="100.0" fill="#98a2b3" rx="2"/><text x="265.5" y="104.0" class="vl">56</text><rect x="280.0" y="28.0" width="23.0" height="180.0" fill="#2f6fed" rx="2"/><text x="291.5" y="24.0" class="vl">100</text><text x="280.0" y="224.0" class="xl">禁兼容壳</text><rect x="343.6" y="140.5" width="23.0" height="67.5" fill="#98a2b3" rx="2"/><text x="355.1" y="136.5" class="vl">38</text><rect x="369.6" y="38.0" width="23.0" height="170.0" fill="#2f6fed" rx="2"/><text x="381.1" y="34.0" class="vl">94</text><text x="369.6" y="224.0" class="xl">矛盾+推导+定义域</text><rect x="433.2" y="111.6" width="23.0" height="96.4" fill="#98a2b3" rx="2"/><text x="444.7" y="107.6" class="vl">54</text><rect x="459.2" y="34.2" width="23.0" height="173.8" fill="#2f6fed" rx="2"/><text x="470.7" y="30.2" class="vl">97</text><text x="459.2" y="224.0" class="xl">定位真身/抽不变式</text><rect x="56" y="238" width="10" height="10" fill="#98a2b3" rx="2"/><text x="71" y="247" class="lg">baseline</text><rect x="154" y="238" width="10" height="10" fill="#2f6fed" rx="2"/><text x="169" y="247" class="lg">treatment</text></svg>
+  <table>
+    <tr><th>判据</th><th class="num">baseline</th><th class="num">treatment</th><th class="num">差值</th></tr>
+    <tr><td>C1 调查先行</td><td class='num'>59.4% <span class='note'>(19/32)</span></td><td class='num'>87.5% <span class='note'>(28/32)</span></td><td class='num up'>+28.1 pp</td></tr><tr><td>C2 唯一彻底方案</td><td class='num'>71.9% <span class='note'>(23/32)</span></td><td class='num'>93.8% <span class='note'>(30/32)</span></td><td class='num up'>+21.9 pp</td></tr><tr><td>C3 禁兼容壳</td><td class='num'>55.6% <span class='note'>(5/9)</span></td><td class='num'>100.0% <span class='note'>(21/21)</span></td><td class='num up'>+44.4 pp</td></tr><tr><td>C4 矛盾+推导+定义域</td><td class='num'>37.5% <span class='note'>(6/16)</span></td><td class='num'>94.4% <span class='note'>(17/18)</span></td><td class='num up'>+56.9 pp</td></tr><tr><td>C5 定位真身/抽不变式</td><td class='num'>53.6% <span class='note'>(15/28)</span></td><td class='num'>96.5% <span class='note'>(28/29)</span></td><td class='num up'>+43.0 pp</td></tr>
+  </table>
+  <p class="note">判据级 n 不等长：<code>na</code>（场景不涉及该判据）已剔除，故各判据分母不同，见表内括号。</p>
+  <h3>配对敏感性分析（消除 <code>na</code> 分母差的影响）</h3>
+  <p class="note">只在「两组都判为非 na」的 (场景 × 模型 × 判据) 单元上比较，同一单元两侧一一对应：
+  共 60 个单元，baseline 均值 58.3% → treatment 均值 92.5%，
+  配对差 <b>+34.2 pp</b>；
+  其中改善 25 个、持平 33 个、变差 2 个。</p>
+  <p class="note">这一节回答一个质疑：treatment 的分母更大（132 vs 117），是不是"答得更多所以更容易碰上 pass"？
+  配对分析把两侧限制在同一批单元上，差值仍为 +34.2 pp ⇒ 不是分母效应。</p>
+</div>
+
+<div class="card">
+  <h2>四、分场景结果</h2>
+  <svg viewBox="0 0 584 280" class="chart" role="img" aria-label="按场景：合规率（%）"><text x="56" y="16" class="ct">按场景：合规率（%）</text><line x1="56" y1="228.0" x2="568" y2="228.0" class="grid"/><text x="48" y="232.0" class="yl">0%</text><line x1="56" y1="178.0" x2="568" y2="178.0" class="grid"/><text x="48" y="182.0" class="yl">25%</text><line x1="56" y1="128.0" x2="568" y2="128.0" class="grid"/><text x="48" y="132.0" class="yl">50%</text><line x1="56" y1="78.0" x2="568" y2="78.0" class="grid"/><text x="48" y="82.0" class="yl">75%</text><line x1="56" y1="28.0" x2="568" y2="28.0" class="grid"/><text x="48" y="32.0" class="yl">100%</text><rect x="63.4" y="85.1" width="21.6" height="142.9" fill="#98a2b3" rx="2"/><text x="74.2" y="81.1" class="vl">71</text><rect x="88.0" y="28.0" width="21.6" height="200.0" fill="#2f6fed" rx="2"/><text x="98.8" y="24.0" class="vl">100</text><text x="88.0" y="244.0" class="xl">S1</text><rect x="127.4" y="86.8" width="21.6" height="141.2" fill="#98a2b3" rx="2"/><text x="138.2" y="82.8" class="vl">71</text><rect x="152.0" y="58.0" width="21.6" height="170.0" fill="#2f6fed" rx="2"/><text x="162.8" y="54.0" class="vl">85</text><text x="152.0" y="244.0" class="xl">S2</text><rect x="191.4" y="188.0" width="21.6" height="40.0" fill="#98a2b3" rx="2"/><text x="202.2" y="184.0" class="vl">20</text><rect x="216.0" y="68.0" width="21.6" height="160.0" fill="#2f6fed" rx="2"/><text x="226.8" y="64.0" class="vl">80</text><text x="216.0" y="244.0" class="xl">S3</text><rect x="255.4" y="78.0" width="21.6" height="150.0" fill="#98a2b3" rx="2"/><text x="266.2" y="74.0" class="vl">75</text><rect x="280.0" y="28.0" width="21.6" height="200.0" fill="#2f6fed" rx="2"/><text x="290.8" y="24.0" class="vl">100</text><text x="280.0" y="244.0" class="xl">S4</text><rect x="319.4" y="216.9" width="21.6" height="11.1" fill="#98a2b3" rx="2"/><text x="330.2" y="212.9" class="vl">6</text><rect x="344.0" y="28.0" width="21.6" height="200.0" fill="#2f6fed" rx="2"/><text x="354.8" y="24.0" class="vl">100</text><text x="344.0" y="244.0" class="xl">S5</text><rect x="383.4" y="41.3" width="21.6" height="186.7" fill="#98a2b3" rx="2"/><text x="394.2" y="37.3" class="vl">93</text><rect x="408.0" y="28.0" width="21.6" height="200.0" fill="#2f6fed" rx="2"/><text x="418.8" y="24.0" class="vl">100</text><text x="408.0" y="244.0" class="xl">S6</text><rect x="447.4" y="99.4" width="21.6" height="128.6" fill="#98a2b3" rx="2"/><text x="458.2" y="95.4" class="vl">64</text><rect x="472.0" y="54.7" width="21.6" height="173.3" fill="#2f6fed" rx="2"/><text x="482.8" y="50.7" class="vl">87</text><text x="472.0" y="244.0" class="xl">S7</text><rect x="511.4" y="61.3" width="21.6" height="166.7" fill="#98a2b3" rx="2"/><text x="522.2" y="57.3" class="vl">83</text><rect x="536.0" y="28.0" width="21.6" height="200.0" fill="#2f6fed" rx="2"/><text x="546.8" y="24.0" class="vl">100</text><text x="536.0" y="244.0" class="xl">S8</text><rect x="56" y="258" width="10" height="10" fill="#98a2b3" rx="2"/><text x="71" y="267" class="lg">baseline</text><rect x="154" y="258" width="10" height="10" fill="#2f6fed" rx="2"/><text x="169" y="267" class="lg">treatment</text></svg>
+  <table>
+    <tr><th>场景</th><th class="num">baseline</th><th class="num">treatment</th><th class="num">差值</th></tr>
+    <tr><td>S1 症状反复 · 重复行</td><td class='num'>71.4% <span class='note'>(10/14)</span></td><td class='num'>100.0% <span class='note'>(17/17)</span></td><td class='num up'>+28.6 pp</td></tr><tr><td>S2 兼容壳诱惑 · 配置拆分</td><td class='num'>70.6% <span class='note'>(12/17)</span></td><td class='num'>85.0% <span class='note'>(17/20)</span></td><td class='num up'>+14.4 pp</td></tr><tr><td>S3 阈值来源 · 超时设多少</td><td class='num'>20.0% <span class='note'>(3/15)</span></td><td class='num'>80.0% <span class='note'>(12/15)</span></td><td class='num up'>+60.0 pp</td></tr><tr><td>S4 先下结论 · 要不要换技术栈</td><td class='num'>75.0% <span class='note'>(9/12)</span></td><td class='num'>100.0% <span class='note'>(16/16)</span></td><td class='num up'>+25.0 pp</td></tr><tr><td>S5 两案择一 · 开关还是重构</td><td class='num'>5.6% <span class='note'>(1/18)</span></td><td class='num'>100.0% <span class='note'>(17/17)</span></td><td class='num up'>+94.4 pp</td></tr><tr><td>S6 规则跨域套用 · 500 行上限</td><td class='num'>93.3% <span class='note'>(14/15)</span></td><td class='num'>100.0% <span class='note'>(16/16)</span></td><td class='num up'>+6.7 pp</td></tr><tr><td>S7 维护点爆炸 · 5 处清单</td><td class='num'>64.3% <span class='note'>(9/14)</span></td><td class='num'>86.7% <span class='note'>(13/15)</span></td><td class='num up'>+22.4 pp</td></tr><tr><td>S8 验收判据 · 怎么算修好</td><td class='num'>83.3% <span class='note'>(10/12)</span></td><td class='num'>100.0% <span class='note'>(16/16)</span></td><td class='num up'>+16.7 pp</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>五、分模型结果</h2>
+  <svg viewBox="0 0 520 240" class="chart" role="img" aria-label="按模型：合规率（%）"><text x="56" y="16" class="ct">按模型：合规率（%）</text><line x1="56" y1="188.0" x2="504" y2="188.0" class="grid"/><text x="48" y="192.0" class="yl">0%</text><line x1="56" y1="148.0" x2="504" y2="148.0" class="grid"/><text x="48" y="152.0" class="yl">25%</text><line x1="56" y1="108.0" x2="504" y2="108.0" class="grid"/><text x="48" y="112.0" class="yl">50%</text><line x1="56" y1="68.0" x2="504" y2="68.0" class="grid"/><text x="48" y="72.0" class="yl">75%</text><line x1="56" y1="28.0" x2="504" y2="28.0" class="grid"/><text x="48" y="32.0" class="yl">100%</text><rect x="142.0" y="188.0" width="23.0" height="0.0" fill="#98a2b3" rx="2"/><text x="153.5" y="184.0" class="vl">0</text><rect x="168.0" y="188.0" width="23.0" height="0.0" fill="#2f6fed" rx="2"/><text x="179.5" y="184.0" class="vl">0</text><text x="168.0" y="204.0" class="xl">model-a</text><rect x="366.0" y="188.0" width="23.0" height="0.0" fill="#98a2b3" rx="2"/><text x="377.5" y="184.0" class="vl">0</text><rect x="392.0" y="188.0" width="23.0" height="0.0" fill="#2f6fed" rx="2"/><text x="403.5" y="184.0" class="vl">0</text><text x="392.0" y="204.0" class="xl">model-b</text><rect x="56" y="218" width="10" height="10" fill="#98a2b3" rx="2"/><text x="71" y="227" class="lg">baseline</text><rect x="154" y="218" width="10" height="10" fill="#2f6fed" rx="2"/><text x="169" y="227" class="lg">treatment</text></svg>
+  <table>
+    <tr><th>模型</th><th class="num">baseline</th><th class="num">treatment</th><th class="num">差值</th></tr>
+    <tr><td>model-a</td><td class='num'>— <span class='note'>(0/0)</span></td><td class='num'>— <span class='note'>(0/0)</span></td><td class='num '>0.0 pp</td></tr><tr><td>model-b</td><td class='num'>— <span class='note'>(0/0)</span></td><td class='num'>— <span class='note'>(0/0)</span></td><td class='num '>0.0 pp</td></tr>
+  </table>
+  <p class="note">两模型族方向一致 ⇒ skill 的效果不是某个模型的特例。</p>
+</div>
+
+<div class="card">
+  <h2>六、机械旁证（不参与主结论）</h2>
+  <table>
+    <tr><th>指标</th><th class="num">baseline</th><th class="num">treatment</th></tr>
+    <tr><td>平均输出字数</td><td class='num'>538</td><td class='num'>666</td></tr><tr><td>平均耗时（秒/次）</td><td class='num'>56.5</td><td class='num'>44.8</td></tr><tr><td>递「A/B 选择题」标记（条均）</td><td class='num'>0.00</td><td class='num'>0.00</td></tr><tr><td>兼容类词命中（条均，越低越好）</td><td class='num'>0.72</td><td class='num'>1.50</td></tr><tr><td>调查类词命中（条均，越高越好）</td><td class='num'>0.84</td><td class='num'>2.22</td></tr>
+  </table>
+  <svg viewBox="0 0 520 220" class="chart" role="img" aria-label="相对输出长度（treatment = 100%）"><text x="56" y="16" class="ct">相对输出长度（treatment = 100%）</text><line x1="56" y1="168.0" x2="504" y2="168.0" class="grid"/><text x="48" y="172.0" class="yl">0%</text><line x1="56" y1="133.0" x2="504" y2="133.0" class="grid"/><text x="48" y="137.0" class="yl">25%</text><line x1="56" y1="98.0" x2="504" y2="98.0" class="grid"/><text x="48" y="102.0" class="yl">50%</text><line x1="56" y1="63.0" x2="504" y2="63.0" class="grid"/><text x="48" y="67.0" class="yl">75%</text><line x1="56" y1="28.0" x2="504" y2="28.0" class="grid"/><text x="48" y="32.0" class="yl">100%</text><rect x="254.0" y="54.9" width="23.0" height="113.1" fill="#98a2b3" rx="2"/><text x="265.5" y="50.9" class="vl">81</text><rect x="280.0" y="28.0" width="23.0" height="140.0" fill="#2f6fed" rx="2"/><text x="291.5" y="24.0" class="vl">100</text><text x="280.0" y="184.0" class="xl">平均输出字数</text><rect x="56" y="198" width="10" height="10" fill="#98a2b3" rx="2"/><text x="71" y="207" class="lg">baseline</text><rect x="154" y="198" width="10" height="10" fill="#2f6fed" rx="2"/><text x="169" y="207" class="lg">treatment</text></svg>
+  <p class="note">旁证只用于交叉验证方向：treatment 输出更长、调查类词更多、兼容类词更少，与判分结果同向。</p>
+</div>
+
+<div class="card">
+  <h2>七、对照实例（原文节选 · 每场景前 420 字）</h2>
+  <p class="note">同一问题、同一模型，唯一差别是系统提示是否装载 skill。左侧为 baseline，右侧为 treatment。</p>
+  
+</div>
+
+<div class="card">
+  <h2>八、局限与不可外推的部分</h2>
+  <ul>
+    <li><b>判分者与被判者同代</b>：已做跨族 + 盲评，但两族共享部分偏好，可能同向偏差；故同时给出机械旁证，两者同向才下强结论。</li>
+    <li><b>场景是合成的</b>：8 个陷阱由真实事故抽象，但仍是"选择题式"提问，比真实对话更易触发纪律 ⇒ 结论只外推到「同类疑难决策」，不覆盖日常编码。</li>
+    <li><b>未测成本</b>：treatment 的系统提示显著更长（skill 真身约 5k 字符），本实验<b>不计 token 成本与延迟代价</b>；本次 treatment 平均耗时 44.8s vs baseline 56.5s，仅供参考。</li>
+    <li><b>样本量</b>：64 条回答，判据级 249 项；区间宽度见上，结论按「方向 + 幅度区间」表述。</li>
+    <li><b>诚实边界</b>：本报告证明的是「装上 skill 后，5 条可机械判定的决策纪律的合规率显著提升」，<b>不证明</b>「产出代码更正确」「项目更成功」。</li>
+  </ul>
+</div>
+
+<div class="sub" style="text-align:center">数据：<code>data/summary.json</code> · <code>data/scores.csv</code> · 原始回答 <code>data/raw.jsonl</code> · 判分 <code>data/judged.jsonl</code></div>
+</div></body></html>

@@ -60,6 +60,21 @@ git clone https://github.com/czluo/luochangzhang.git "$HOME\.codebuddy\skills\ma
 - 审查方案或他人代码改动的根本性把关
 - 怀疑自己在凭经验下结论
 
+## 有效性实验（有数据，不是讲道理）
+
+做过一次真 A/B：8 个决策陷阱 × 2 个模型族 × 2 组 × 2 次重复 = 64 条回答，唯一变量是系统提示是否装载本 skill，回答由**另一模型族盲评**（判分输入不含组别标签），按 5 条可机械判定的判据打分。
+
+| 指标 | 不装 skill | 装 skill |
+|---|---|---|
+| 判据级合规率 | 58.1%（68/117） | **93.9%**（124/132） |
+| 配对分析（消除分母差） | 58.3% | 92.5% |
+| 「阈值要说得出来源」判据 | 37.5% | **94.4%** |
+| 「禁兼容壳」判据 | 55.6% | **100%** |
+
+→ 报告（含逐场景对照原文）：[`experiments/materialist-dev-ab/report.md`](experiments/materialist-dev-ab/report.md) · 图文版 [`report.html`](experiments/materialist-dev-ab/report.html) · 设计 [`design.md`](experiments/materialist-dev-ab/design.md) · 原始数据与复现脚本 [`experiments/`](experiments/)
+
+**这个实验没有证明什么**：不证明产出代码更正确、不证明项目更成功；场景是合成的选择题式提问，比真实对话更易触发纪律；判分者与被判者同代模型，存在共享偏好；未计 token 成本。详见 [`experiments/materialist-dev-ab/README.md`](experiments/materialist-dev-ab/README.md) 第四节。
+
 ## 设计取舍（为什么这么短）
 
 - `SKILL.md` ≈ 26 行 = **索引层**：心智锚 + 8 行场景表 + 无条件三动作，常驻上下文成本极低；
@@ -75,6 +90,8 @@ materialist-dev/
 ├── references/
 │   ├── 01-principles.md         # 真身（中文）：§1 路线 · §2 前提 · §3-§5 三原则 · §6 变种 · §7 抽查
 │   └── 01-principles.en.md      # 真身（英文）
+├── experiments/
+│   └── materialist-dev-ab/      # A/B 实验：脚本 + 原始数据 + 报告（可复现）
 ├── README.md / README.en.md
 └── LICENSE
 ```

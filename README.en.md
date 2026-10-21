@@ -61,6 +61,21 @@ No command to remember — it loads on these situations (see the situation table
 - reviewing a plan or someone else's code change at the fundamental level
 - suspecting you are concluding from experience
 
+## Evidence (measured, not argued)
+
+A real A/B run: 8 decision traps × 2 model families × 2 arms × 2 repetitions = 64 answers. The only variable is whether the skill is loaded into the system prompt; answers were scored by a **different model family** under blind conditions (no arm label in the judge input) against 5 mechanically checkable criteria.
+
+| Metric | without skill | with skill |
+|---|---|---|
+| Criteria-level compliance | 58.1% (68/117) | **93.9%** (124/132) |
+| Paired analysis (same cells both arms) | 58.3% | 92.5% |
+| "Threshold must state its source" | 37.5% | **94.4%** |
+| "No compatibility shells" | 55.6% | **100%** |
+
+→ Report: [`experiments/materialist-dev-ab/report.md`](experiments/materialist-dev-ab/report.md) · HTML with charts [`report.html`](experiments/materialist-dev-ab/report.html) · Design [`design.md`](experiments/materialist-dev-ab/design.md) · Raw data + scripts [`experiments/`](experiments/)
+
+**What this does not prove**: that the resulting code is more correct or that projects succeed more often. The scenarios are synthetic selection-style prompts (easier to trigger discipline than real conversations), judge and subject are same-generation models (shared preferences), and token cost is not measured. See section 4 of [`experiments/materialist-dev-ab/README.md`](experiments/materialist-dev-ab/README.md).
+
 ## Design trade-offs (why it is this short)
 
 - The skill file (~26 lines) is an **index layer**: general line + 8-row situation table + three unconditional actions; negligible resident context cost;
@@ -76,6 +91,8 @@ materialist-dev/
 ├── references/
 │   ├── 01-principles.md         # source of truth (zh)
 │   └── 01-principles.en.md      # source of truth (en)
+├── experiments/
+│   └── materialist-dev-ab/      # A/B experiment: scripts + raw data + report (reproducible)
 ├── README.md / README.en.md
 └── LICENSE
 ```

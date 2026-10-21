@@ -1,0 +1,2110 @@
+{
+  "generated_at": "2026-10-21 14:11:56",
+  "paired": {
+    "n_cells": 60,
+    "baseline_mean": 0.5833,
+    "treatment_mean": 0.925,
+    "improved": 25,
+    "tied": 33,
+    "worsened": 2,
+    "delta": 0.3417
+  },
+  "design": {
+    "scenarios": [
+      {
+        "id": "S1_dup_rows",
+        "title": "症状反复 · 重复行",
+        "focus": "root_cause"
+      },
+      {
+        "id": "S2_compat",
+        "title": "兼容壳诱惑 · 配置拆分",
+        "focus": "no_compat"
+      },
+      {
+        "id": "S3_threshold",
+        "title": "阈值来源 · 超时设多少",
+        "focus": "mechanism_domain"
+      },
+      {
+        "id": "S4_assert",
+        "title": "先下结论 · 要不要换技术栈",
+        "focus": "investigate"
+      },
+      {
+        "id": "S5_choose",
+        "title": "两案择一 · 开关还是重构",
+        "focus": "single_plan"
+      },
+      {
+        "id": "S6_domain",
+        "title": "规则跨域套用 · 500 行上限",
+        "focus": "mechanism_domain"
+      },
+      {
+        "id": "S7_growth",
+        "title": "维护点爆炸 · 5 处清单",
+        "focus": "root_cause"
+      },
+      {
+        "id": "S8_accept",
+        "title": "验收判据 · 怎么算修好",
+        "focus": "root_cause"
+      }
+    ],
+    "models": [
+      "model-a",
+      "model-b"
+    ],
+    "reps": 2,
+    "arms": [
+      "baseline",
+      "treatment"
+    ],
+    "criteria": [
+      {
+        "name": "investigate",
+        "desc": "拒绝在无证据时下结论：明确列为完成调查/列出需核查的事实与证据来源，而不是直接断言"
+      },
+      {
+        "name": "single_plan",
+        "desc": "只给一个彻底方案：不把「最小改法/权宜方案」作为推荐，也不递 A/B 选择题让用户自己挑"
+      },
+      {
+        "name": "no_compat",
+        "desc": "不留兼容壳：主张同批改彻底、旧字段/旧开关/旧路径同批消失；不主张 deprecated 并存过渡"
+      },
+      {
+        "name": "mechanism_domain",
+        "desc": "阈值/规则给得出矛盾+推导式+定义域，或显式标注为经验假设并给退出条件/晋升条件"
+      },
+      {
+        "name": "root_cause",
+        "desc": "定位真身/抽象不变式：指出「同一语义多处定义」或给出一次定义处处生效的结构，而不是加去重/加开关/加兜底"
+      }
+    ],
+    "judge": {
+      "model-a": "model-b",
+      "model-b": "model-a"
+    }
+  },
+  "n_responses": 64,
+  "by_arm": {
+    "baseline": {
+      "investigate": {
+        "n": 32,
+        "pass": 19,
+        "rate": 0.5938
+      },
+      "single_plan": {
+        "n": 32,
+        "pass": 23,
+        "rate": 0.7188
+      },
+      "no_compat": {
+        "n": 9,
+        "pass": 5,
+        "rate": 0.5556
+      },
+      "mechanism_domain": {
+        "n": 16,
+        "pass": 6,
+        "rate": 0.375
+      },
+      "root_cause": {
+        "n": 28,
+        "pass": 15,
+        "rate": 0.5357
+      },
+      "_overall": {
+        "n": 117,
+        "pass": 68,
+        "rate": 0.5812,
+        "ci95": [
+          0.4906,
+          0.6666
+        ],
+        "mean_chars": 538.4,
+        "mean_latency": 56.46,
+        "mean_evidence": 0.84,
+        "mean_compat": 0.72,
+        "mean_options": 0.0
+      }
+    },
+    "treatment": {
+      "investigate": {
+        "n": 32,
+        "pass": 28,
+        "rate": 0.875
+      },
+      "single_plan": {
+        "n": 32,
+        "pass": 30,
+        "rate": 0.9375
+      },
+      "no_compat": {
+        "n": 21,
+        "pass": 21,
+        "rate": 1.0
+      },
+      "mechanism_domain": {
+        "n": 18,
+        "pass": 17,
+        "rate": 0.9444
+      },
+      "root_cause": {
+        "n": 29,
+        "pass": 28,
+        "rate": 0.9655
+      },
+      "_overall": {
+        "n": 132,
+        "pass": 124,
+        "rate": 0.9394,
+        "ci95": [
+          0.885,
+          0.969
+        ],
+        "mean_chars": 666.5,
+        "mean_latency": 44.75,
+        "mean_evidence": 2.22,
+        "mean_compat": 1.5,
+        "mean_options": 0.0
+      }
+    }
+  },
+  "by_model": {
+    "model-a": {
+      "baseline": {
+        "investigate": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "single_plan": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "no_compat": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "mechanism_domain": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "root_cause": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "_overall": {
+          "n": 0,
+          "pass": 0,
+          "rate": null,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean_chars": 0,
+          "mean_latency": 0,
+          "mean_evidence": 0,
+          "mean_compat": 0,
+          "mean_options": 0
+        }
+      },
+      "treatment": {
+        "investigate": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "single_plan": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "no_compat": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "mechanism_domain": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "root_cause": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "_overall": {
+          "n": 0,
+          "pass": 0,
+          "rate": null,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean_chars": 0,
+          "mean_latency": 0,
+          "mean_evidence": 0,
+          "mean_compat": 0,
+          "mean_options": 0
+        }
+      }
+    },
+    "model-b": {
+      "baseline": {
+        "investigate": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "single_plan": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "no_compat": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "mechanism_domain": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "root_cause": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "_overall": {
+          "n": 0,
+          "pass": 0,
+          "rate": null,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean_chars": 0,
+          "mean_latency": 0,
+          "mean_evidence": 0,
+          "mean_compat": 0,
+          "mean_options": 0
+        }
+      },
+      "treatment": {
+        "investigate": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "single_plan": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "no_compat": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "mechanism_domain": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "root_cause": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "_overall": {
+          "n": 0,
+          "pass": 0,
+          "rate": null,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean_chars": 0,
+          "mean_latency": 0,
+          "mean_evidence": 0,
+          "mean_compat": 0,
+          "mean_options": 0
+        }
+      }
+    }
+  },
+  "by_scenario": {
+    "S1_dup_rows": {
+      "baseline": {
+        "investigate": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "single_plan": {
+          "n": 4,
+          "pass": 3,
+          "rate": 0.75
+        },
+        "no_compat": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "mechanism_domain": {
+          "n": 2,
+          "pass": 0,
+          "rate": 0.0
+        },
+        "root_cause": {
+          "n": 4,
+          "pass": 3,
+          "rate": 0.75
+        },
+        "_overall": {
+          "n": 14,
+          "pass": 10,
+          "rate": 0.7143,
+          "ci95": [
+            0.4535,
+            0.8828
+          ],
+          "mean_chars": 663.5,
+          "mean_latency": 12.43,
+          "mean_evidence": 1.5,
+          "mean_compat": 0.0,
+          "mean_options": 0.0
+        }
+      },
+      "treatment": {
+        "investigate": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "single_plan": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "no_compat": {
+          "n": 3,
+          "pass": 3,
+          "rate": 1.0
+        },
+        "mechanism_domain": {
+          "n": 2,
+          "pass": 2,
+          "rate": 1.0
+        },
+        "root_cause": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "_overall": {
+          "n": 17,
+          "pass": 17,
+          "rate": 1.0,
+          "ci95": [
+            0.8157,
+            1.0
+          ],
+          "mean_chars": 723.8,
+          "mean_latency": 12.49,
+          "mean_evidence": 2.75,
+          "mean_compat": 0.75,
+          "mean_options": 0.0
+        }
+      }
+    },
+    "S2_compat": {
+      "baseline": {
+        "investigate": {
+          "n": 4,
+          "pass": 2,
+          "rate": 0.5
+        },
+        "single_plan": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "no_compat": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "mechanism_domain": {
+          "n": 1,
+          "pass": 0,
+          "rate": 0.0
+        },
+        "root_cause": {
+          "n": 4,
+          "pass": 2,
+          "rate": 0.5
+        },
+        "_overall": {
+          "n": 17,
+          "pass": 12,
+          "rate": 0.7059,
+          "ci95": [
+            0.4687,
+            0.8672
+          ],
+          "mean_chars": 673.8,
+          "mean_latency": 9.57,
+          "mean_evidence": 0.25,
+          "mean_compat": 5.0,
+          "mean_options": 0.0
+        }
+      },
+      "treatment": {
+        "investigate": {
+          "n": 4,
+          "pass": 2,
+          "rate": 0.5
+        },
+        "single_plan": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "no_compat": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "mechanism_domain": {
+          "n": 4,
+          "pass": 3,
+          "rate": 0.75
+        },
+        "root_cause": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "_overall": {
+          "n": 20,
+          "pass": 17,
+          "rate": 0.85,
+          "ci95": [
+            0.6396,
+            0.9476
+          ],
+          "mean_chars": 710.8,
+          "mean_latency": 12.28,
+          "mean_evidence": 0.75,
+          "mean_compat": 4.25,
+          "mean_options": 0.0
+        }
+      }
+    },
+    "S3_threshold": {
+      "baseline": {
+        "investigate": {
+          "n": 4,
+          "pass": 0,
+          "rate": 0.0
+        },
+        "single_plan": {
+          "n": 4,
+          "pass": 3,
+          "rate": 0.75
+        },
+        "no_compat": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "mechanism_domain": {
+          "n": 4,
+          "pass": 0,
+          "rate": 0.0
+        },
+        "root_cause": {
+          "n": 3,
+          "pass": 0,
+          "rate": 0.0
+        },
+        "_overall": {
+          "n": 15,
+          "pass": 3,
+          "rate": 0.2,
+          "ci95": [
+            0.0705,
+            0.4519
+          ],
+          "mean_chars": 207.5,
+          "mean_latency": 8.41,
+          "mean_evidence": 0.25,
+          "mean_compat": 0.0,
+          "mean_options": 0.0
+        }
+      },
+      "treatment": {
+        "investigate": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "single_plan": {
+          "n": 4,
+          "pass": 2,
+          "rate": 0.5
+        },
+        "no_compat": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "mechanism_domain": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "root_cause": {
+          "n": 3,
+          "pass": 2,
+          "rate": 0.6667
+        },
+        "_overall": {
+          "n": 15,
+          "pass": 12,
+          "rate": 0.8,
+          "ci95": [
+            0.5481,
+            0.9295
+          ],
+          "mean_chars": 490.2,
+          "mean_latency": 22.63,
+          "mean_evidence": 1.25,
+          "mean_compat": 0.0,
+          "mean_options": 0.0
+        }
+      }
+    },
+    "S4_assert": {
+      "baseline": {
+        "investigate": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "single_plan": {
+          "n": 4,
+          "pass": 2,
+          "rate": 0.5
+        },
+        "no_compat": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "mechanism_domain": {
+          "n": 2,
+          "pass": 1,
+          "rate": 0.5
+        },
+        "root_cause": {
+          "n": 2,
+          "pass": 2,
+          "rate": 1.0
+        },
+        "_overall": {
+          "n": 12,
+          "pass": 9,
+          "rate": 0.75,
+          "ci95": [
+            0.4677,
+            0.9111
+          ],
+          "mean_chars": 640.8,
+          "mean_latency": 10.2,
+          "mean_evidence": 0.0,
+          "mean_compat": 0.0,
+          "mean_options": 0.0
+        }
+      },
+      "treatment": {
+        "investigate": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "single_plan": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "no_compat": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "mechanism_domain": {
+          "n": 2,
+          "pass": 2,
+          "rate": 1.0
+        },
+        "root_cause": {
+          "n": 2,
+          "pass": 2,
+          "rate": 1.0
+        },
+        "_overall": {
+          "n": 16,
+          "pass": 16,
+          "rate": 1.0,
+          "ci95": [
+            0.8064,
+            1.0
+          ],
+          "mean_chars": 648.2,
+          "mean_latency": 13.95,
+          "mean_evidence": 6.0,
+          "mean_compat": 0.75,
+          "mean_options": 0.0
+        }
+      }
+    },
+    "S5_choose": {
+      "baseline": {
+        "investigate": {
+          "n": 4,
+          "pass": 0,
+          "rate": 0.0
+        },
+        "single_plan": {
+          "n": 4,
+          "pass": 0,
+          "rate": 0.0
+        },
+        "no_compat": {
+          "n": 4,
+          "pass": 0,
+          "rate": 0.0
+        },
+        "mechanism_domain": {
+          "n": 2,
+          "pass": 1,
+          "rate": 0.5
+        },
+        "root_cause": {
+          "n": 4,
+          "pass": 0,
+          "rate": 0.0
+        },
+        "_overall": {
+          "n": 18,
+          "pass": 1,
+          "rate": 0.0556,
+          "ci95": [
+            0.0099,
+            0.2576
+          ],
+          "mean_chars": 387.2,
+          "mean_latency": 130.28,
+          "mean_evidence": 0.5,
+          "mean_compat": 0.25,
+          "mean_options": 0.0
+        }
+      },
+      "treatment": {
+        "investigate": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "single_plan": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "no_compat": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "mechanism_domain": {
+          "n": 1,
+          "pass": 1,
+          "rate": 1.0
+        },
+        "root_cause": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "_overall": {
+          "n": 17,
+          "pass": 17,
+          "rate": 1.0,
+          "ci95": [
+            0.8157,
+            1.0
+          ],
+          "mean_chars": 631.8,
+          "mean_latency": 132.37,
+          "mean_evidence": 3.5,
+          "mean_compat": 3.25,
+          "mean_options": 0.0
+        }
+      }
+    },
+    "S6_domain": {
+      "baseline": {
+        "investigate": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "single_plan": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "no_compat": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "mechanism_domain": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "root_cause": {
+          "n": 3,
+          "pass": 2,
+          "rate": 0.6667
+        },
+        "_overall": {
+          "n": 15,
+          "pass": 14,
+          "rate": 0.9333,
+          "ci95": [
+            0.7018,
+            0.9881
+          ],
+          "mean_chars": 553.2,
+          "mean_latency": 131.37,
+          "mean_evidence": 0.25,
+          "mean_compat": 0.0,
+          "mean_options": 0.0
+        }
+      },
+      "treatment": {
+        "investigate": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "single_plan": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "no_compat": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "mechanism_domain": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "root_cause": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "_overall": {
+          "n": 16,
+          "pass": 16,
+          "rate": 1.0,
+          "ci95": [
+            0.8064,
+            1.0
+          ],
+          "mean_chars": 612.2,
+          "mean_latency": 134.91,
+          "mean_evidence": 1.25,
+          "mean_compat": 0.0,
+          "mean_options": 0.0
+        }
+      }
+    },
+    "S7_growth": {
+      "baseline": {
+        "investigate": {
+          "n": 4,
+          "pass": 1,
+          "rate": 0.25
+        },
+        "single_plan": {
+          "n": 4,
+          "pass": 3,
+          "rate": 0.75
+        },
+        "no_compat": {
+          "n": 1,
+          "pass": 1,
+          "rate": 1.0
+        },
+        "mechanism_domain": {
+          "n": 1,
+          "pass": 0,
+          "rate": 0.0
+        },
+        "root_cause": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "_overall": {
+          "n": 14,
+          "pass": 9,
+          "rate": 0.6429,
+          "ci95": [
+            0.3876,
+            0.8366
+          ],
+          "mean_chars": 660.8,
+          "mean_latency": 72.94,
+          "mean_evidence": 0.0,
+          "mean_compat": 0.25,
+          "mean_options": 0.0
+        }
+      },
+      "treatment": {
+        "investigate": {
+          "n": 4,
+          "pass": 2,
+          "rate": 0.5
+        },
+        "single_plan": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "no_compat": {
+          "n": 3,
+          "pass": 3,
+          "rate": 1.0
+        },
+        "mechanism_domain": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "root_cause": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "_overall": {
+          "n": 15,
+          "pass": 13,
+          "rate": 0.8667,
+          "ci95": [
+            0.6212,
+            0.9626
+          ],
+          "mean_chars": 814.2,
+          "mean_latency": 13.03,
+          "mean_evidence": 0.5,
+          "mean_compat": 1.75,
+          "mean_options": 0.0
+        }
+      }
+    },
+    "S8_accept": {
+      "baseline": {
+        "investigate": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "single_plan": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "no_compat": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "mechanism_domain": {
+          "n": 0,
+          "pass": 0,
+          "rate": null
+        },
+        "root_cause": {
+          "n": 4,
+          "pass": 2,
+          "rate": 0.5
+        },
+        "_overall": {
+          "n": 12,
+          "pass": 10,
+          "rate": 0.8333,
+          "ci95": [
+            0.552,
+            0.953
+          ],
+          "mean_chars": 520.5,
+          "mean_latency": 76.47,
+          "mean_evidence": 4.0,
+          "mean_compat": 0.25,
+          "mean_options": 0.0
+        }
+      },
+      "treatment": {
+        "investigate": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "single_plan": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "no_compat": {
+          "n": 3,
+          "pass": 3,
+          "rate": 1.0
+        },
+        "mechanism_domain": {
+          "n": 1,
+          "pass": 1,
+          "rate": 1.0
+        },
+        "root_cause": {
+          "n": 4,
+          "pass": 4,
+          "rate": 1.0
+        },
+        "_overall": {
+          "n": 16,
+          "pass": 16,
+          "rate": 1.0,
+          "ci95": [
+            0.8064,
+            1.0
+          ],
+          "mean_chars": 701.0,
+          "mean_latency": 16.37,
+          "mean_evidence": 1.75,
+          "mean_compat": 1.25,
+          "mean_options": 0.0
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "scenario": "S2_compat",
+      "model": "ds41-01",
+      "arm": "baseline",
+      "rep": 1,
+      "chars": 787,
+      "opt_marks": 0,
+      "compat_hits": 7,
+      "assert_hits": 0,
+      "evidence_hits": 1,
+      "latency_s": 7.67,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S1_dup_rows",
+      "model": "ds41-01",
+      "arm": "baseline",
+      "rep": 1,
+      "chars": 821,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 9.41,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S1_dup_rows",
+      "model": "ds41-01",
+      "arm": "baseline",
+      "rep": 2,
+      "chars": 478,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 1,
+      "latency_s": 13.91,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "fail",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S2_compat",
+      "model": "ds41-01",
+      "arm": "baseline",
+      "rep": 2,
+      "chars": 680,
+      "opt_marks": 0,
+      "compat_hits": 5,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 9.24,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S3_threshold",
+      "model": "ds41-01",
+      "arm": "baseline",
+      "rep": 1,
+      "chars": 61,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 7.72,
+      "investigate": "fail",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "fail",
+      "root_cause": "na"
+    },
+    {
+      "scenario": "S3_threshold",
+      "model": "ds41-01",
+      "arm": "baseline",
+      "rep": 2,
+      "chars": 2,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 5.41,
+      "investigate": "fail",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "fail",
+      "root_cause": "fail"
+    },
+    {
+      "scenario": "S4_assert",
+      "model": "ds41-01",
+      "arm": "baseline",
+      "rep": 1,
+      "chars": 642,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 4.99,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "fail",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S4_assert",
+      "model": "ds41-01",
+      "arm": "baseline",
+      "rep": 2,
+      "chars": 440,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 8.09,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "pass",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S5_choose",
+      "model": "ds41-01",
+      "arm": "baseline",
+      "rep": 1,
+      "chars": 279,
+      "opt_marks": 0,
+      "compat_hits": 1,
+      "assert_hits": 0,
+      "evidence_hits": 1,
+      "latency_s": 7.22,
+      "investigate": "fail",
+      "single_plan": "fail",
+      "no_compat": "fail",
+      "mechanism_domain": "na",
+      "root_cause": "fail"
+    },
+    {
+      "scenario": "S6_domain",
+      "model": "ds41-01",
+      "arm": "baseline",
+      "rep": 1,
+      "chars": 514,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 1,
+      "latency_s": 6.31,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "pass",
+      "root_cause": "na"
+    },
+    {
+      "scenario": "S5_choose",
+      "model": "ds41-01",
+      "arm": "baseline",
+      "rep": 2,
+      "chars": 488,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 10.19,
+      "investigate": "fail",
+      "single_plan": "fail",
+      "no_compat": "fail",
+      "mechanism_domain": "pass",
+      "root_cause": "fail"
+    },
+    {
+      "scenario": "S6_domain",
+      "model": "ds41-01",
+      "arm": "baseline",
+      "rep": 2,
+      "chars": 500,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 10.04,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "pass",
+      "root_cause": "fail"
+    },
+    {
+      "scenario": "S7_growth",
+      "model": "ds41-01",
+      "arm": "baseline",
+      "rep": 1,
+      "chars": 417,
+      "opt_marks": 0,
+      "compat_hits": 1,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 6.27,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S8_accept",
+      "model": "ds41-01",
+      "arm": "baseline",
+      "rep": 1,
+      "chars": 538,
+      "opt_marks": 0,
+      "compat_hits": 1,
+      "assert_hits": 0,
+      "evidence_hits": 5,
+      "latency_s": 6.58,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S7_growth",
+      "model": "ds41-01",
+      "arm": "baseline",
+      "rep": 2,
+      "chars": 628,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 13.54,
+      "investigate": "fail",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S8_accept",
+      "model": "ds41-01",
+      "arm": "baseline",
+      "rep": 2,
+      "chars": 508,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 4,
+      "latency_s": 10.61,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S1_dup_rows",
+      "model": "ds41-01",
+      "arm": "treatment",
+      "rep": 1,
+      "chars": 734,
+      "opt_marks": 0,
+      "compat_hits": 1,
+      "assert_hits": 0,
+      "evidence_hits": 4,
+      "latency_s": 10.79,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "pass",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S1_dup_rows",
+      "model": "ds41-01",
+      "arm": "treatment",
+      "rep": 2,
+      "chars": 666,
+      "opt_marks": 0,
+      "compat_hits": 2,
+      "assert_hits": 0,
+      "evidence_hits": 1,
+      "latency_s": 11.47,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "pass",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S2_compat",
+      "model": "ds41-01",
+      "arm": "treatment",
+      "rep": 1,
+      "chars": 812,
+      "opt_marks": 0,
+      "compat_hits": 7,
+      "assert_hits": 0,
+      "evidence_hits": 1,
+      "latency_s": 18.14,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "pass",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S2_compat",
+      "model": "ds41-01",
+      "arm": "treatment",
+      "rep": 2,
+      "chars": 848,
+      "opt_marks": 0,
+      "compat_hits": 3,
+      "assert_hits": 0,
+      "evidence_hits": 1,
+      "latency_s": 8.34,
+      "investigate": "fail",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "pass",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S3_threshold",
+      "model": "ds41-01",
+      "arm": "treatment",
+      "rep": 2,
+      "chars": 468,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 9.2,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "pass",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S3_threshold",
+      "model": "ds41-01",
+      "arm": "treatment",
+      "rep": 1,
+      "chars": 527,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 1,
+      "latency_s": 19.23,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "pass",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S4_assert",
+      "model": "ds41-01",
+      "arm": "treatment",
+      "rep": 1,
+      "chars": 755,
+      "opt_marks": 0,
+      "compat_hits": 1,
+      "assert_hits": 1,
+      "evidence_hits": 3,
+      "latency_s": 16.2,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "pass",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S4_assert",
+      "model": "ds41-01",
+      "arm": "treatment",
+      "rep": 2,
+      "chars": 578,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 1,
+      "evidence_hits": 6,
+      "latency_s": 11.78,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "pass",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S5_choose",
+      "model": "ds41-01",
+      "arm": "treatment",
+      "rep": 1,
+      "chars": 671,
+      "opt_marks": 0,
+      "compat_hits": 2,
+      "assert_hits": 0,
+      "evidence_hits": 1,
+      "latency_s": 12.03,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "pass",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S5_choose",
+      "model": "ds41-01",
+      "arm": "treatment",
+      "rep": 2,
+      "chars": 690,
+      "opt_marks": 0,
+      "compat_hits": 4,
+      "assert_hits": 0,
+      "evidence_hits": 4,
+      "latency_s": 10.71,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S6_domain",
+      "model": "ds41-01",
+      "arm": "treatment",
+      "rep": 1,
+      "chars": 603,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 3,
+      "latency_s": 11.08,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "pass",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S6_domain",
+      "model": "ds41-01",
+      "arm": "treatment",
+      "rep": 2,
+      "chars": 700,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 9.58,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "pass",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S7_growth",
+      "model": "ds41-01",
+      "arm": "treatment",
+      "rep": 1,
+      "chars": 622,
+      "opt_marks": 0,
+      "compat_hits": 1,
+      "assert_hits": 0,
+      "evidence_hits": 1,
+      "latency_s": 11.78,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S7_growth",
+      "model": "ds41-01",
+      "arm": "treatment",
+      "rep": 2,
+      "chars": 760,
+      "opt_marks": 0,
+      "compat_hits": 3,
+      "assert_hits": 0,
+      "evidence_hits": 1,
+      "latency_s": 11.37,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S8_accept",
+      "model": "ds41-01",
+      "arm": "treatment",
+      "rep": 1,
+      "chars": 692,
+      "opt_marks": 0,
+      "compat_hits": 2,
+      "assert_hits": 0,
+      "evidence_hits": 1,
+      "latency_s": 11.55,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S8_accept",
+      "model": "ds41-01",
+      "arm": "treatment",
+      "rep": 2,
+      "chars": 762,
+      "opt_marks": 0,
+      "compat_hits": 2,
+      "assert_hits": 0,
+      "evidence_hits": 4,
+      "latency_s": 11.38,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S2_compat",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "baseline",
+      "rep": 1,
+      "chars": 599,
+      "opt_marks": 0,
+      "compat_hits": 3,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 11.32,
+      "investigate": "fail",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "na",
+      "root_cause": "fail"
+    },
+    {
+      "scenario": "S1_dup_rows",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "baseline",
+      "rep": 2,
+      "chars": 719,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 1,
+      "evidence_hits": 4,
+      "latency_s": 13.02,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "fail",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S1_dup_rows",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "baseline",
+      "rep": 1,
+      "chars": 636,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 1,
+      "evidence_hits": 1,
+      "latency_s": 13.36,
+      "investigate": "pass",
+      "single_plan": "fail",
+      "no_compat": "na",
+      "mechanism_domain": "na",
+      "root_cause": "fail"
+    },
+    {
+      "scenario": "S3_threshold",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "baseline",
+      "rep": 2,
+      "chars": 353,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 1,
+      "evidence_hits": 1,
+      "latency_s": 7.49,
+      "investigate": "fail",
+      "single_plan": "fail",
+      "no_compat": "na",
+      "mechanism_domain": "fail",
+      "root_cause": "fail"
+    },
+    {
+      "scenario": "S2_compat",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "baseline",
+      "rep": 2,
+      "chars": 629,
+      "opt_marks": 0,
+      "compat_hits": 5,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 10.05,
+      "investigate": "fail",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "fail",
+      "root_cause": "fail"
+    },
+    {
+      "scenario": "S3_threshold",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "baseline",
+      "rep": 1,
+      "chars": 414,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 1,
+      "evidence_hits": 0,
+      "latency_s": 13.02,
+      "investigate": "fail",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "fail",
+      "root_cause": "fail"
+    },
+    {
+      "scenario": "S4_assert",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "baseline",
+      "rep": 2,
+      "chars": 656,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 10.82,
+      "investigate": "pass",
+      "single_plan": "fail",
+      "no_compat": "na",
+      "mechanism_domain": "na",
+      "root_cause": "na"
+    },
+    {
+      "scenario": "S4_assert",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "baseline",
+      "rep": 1,
+      "chars": 825,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 2,
+      "evidence_hits": 0,
+      "latency_s": 16.88,
+      "investigate": "pass",
+      "single_plan": "fail",
+      "no_compat": "na",
+      "mechanism_domain": "na",
+      "root_cause": "na"
+    },
+    {
+      "scenario": "S5_choose",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "baseline",
+      "rep": 2,
+      "chars": 366,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 1,
+      "latency_s": 8.22,
+      "investigate": "fail",
+      "single_plan": "fail",
+      "no_compat": "fail",
+      "mechanism_domain": "fail",
+      "root_cause": "fail"
+    },
+    {
+      "scenario": "S6_domain",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "baseline",
+      "rep": 1,
+      "chars": 602,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 12.49,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "pass",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S7_growth",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "baseline",
+      "rep": 1,
+      "chars": 899,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 18.15,
+      "investigate": "fail",
+      "single_plan": "fail",
+      "no_compat": "na",
+      "mechanism_domain": "fail",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S7_growth",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "baseline",
+      "rep": 2,
+      "chars": 699,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 1,
+      "evidence_hits": 0,
+      "latency_s": 253.81,
+      "investigate": "fail",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S8_accept",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "baseline",
+      "rep": 1,
+      "chars": 542,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 4,
+      "latency_s": 9.28,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "na",
+      "root_cause": "fail"
+    },
+    {
+      "scenario": "S5_choose",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "baseline",
+      "rep": 1,
+      "chars": 416,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 495.47,
+      "investigate": "fail",
+      "single_plan": "fail",
+      "no_compat": "fail",
+      "mechanism_domain": "na",
+      "root_cause": "fail"
+    },
+    {
+      "scenario": "S6_domain",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "baseline",
+      "rep": 2,
+      "chars": 597,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 496.64,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "pass",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S8_accept",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "baseline",
+      "rep": 2,
+      "chars": 494,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 1,
+      "evidence_hits": 3,
+      "latency_s": 279.4,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "na",
+      "root_cause": "fail"
+    },
+    {
+      "scenario": "S2_compat",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "treatment",
+      "rep": 1,
+      "chars": 509,
+      "opt_marks": 0,
+      "compat_hits": 2,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 11.34,
+      "investigate": "fail",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "fail",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S1_dup_rows",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "treatment",
+      "rep": 1,
+      "chars": 712,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 3,
+      "latency_s": 12.04,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S1_dup_rows",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "treatment",
+      "rep": 2,
+      "chars": 783,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 1,
+      "evidence_hits": 3,
+      "latency_s": 15.65,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S2_compat",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "treatment",
+      "rep": 2,
+      "chars": 674,
+      "opt_marks": 0,
+      "compat_hits": 5,
+      "assert_hits": 0,
+      "evidence_hits": 1,
+      "latency_s": 11.28,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "pass",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S4_assert",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "treatment",
+      "rep": 1,
+      "chars": 652,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 2,
+      "evidence_hits": 6,
+      "latency_s": 15.77,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "na",
+      "root_cause": "na"
+    },
+    {
+      "scenario": "S3_threshold",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "treatment",
+      "rep": 2,
+      "chars": 503,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 1,
+      "evidence_hits": 2,
+      "latency_s": 23.74,
+      "investigate": "pass",
+      "single_plan": "fail",
+      "no_compat": "na",
+      "mechanism_domain": "pass",
+      "root_cause": "na"
+    },
+    {
+      "scenario": "S5_choose",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "treatment",
+      "rep": 1,
+      "chars": 585,
+      "opt_marks": 0,
+      "compat_hits": 3,
+      "assert_hits": 1,
+      "evidence_hits": 6,
+      "latency_s": 9.78,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S3_threshold",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "treatment",
+      "rep": 1,
+      "chars": 463,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 2,
+      "latency_s": 38.34,
+      "investigate": "pass",
+      "single_plan": "fail",
+      "no_compat": "na",
+      "mechanism_domain": "pass",
+      "root_cause": "fail"
+    },
+    {
+      "scenario": "S4_assert",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "treatment",
+      "rep": 2,
+      "chars": 608,
+      "opt_marks": 0,
+      "compat_hits": 2,
+      "assert_hits": 2,
+      "evidence_hits": 9,
+      "latency_s": 12.06,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "na",
+      "root_cause": "na"
+    },
+    {
+      "scenario": "S6_domain",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "treatment",
+      "rep": 1,
+      "chars": 546,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 1,
+      "evidence_hits": 1,
+      "latency_s": 12.61,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "pass",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S7_growth",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "treatment",
+      "rep": 1,
+      "chars": 892,
+      "opt_marks": 0,
+      "compat_hits": 1,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 9.97,
+      "investigate": "fail",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S7_growth",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "treatment",
+      "rep": 2,
+      "chars": 983,
+      "opt_marks": 0,
+      "compat_hits": 2,
+      "assert_hits": 0,
+      "evidence_hits": 0,
+      "latency_s": 19.0,
+      "investigate": "fail",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S8_accept",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "treatment",
+      "rep": 1,
+      "chars": 590,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 0,
+      "evidence_hits": 1,
+      "latency_s": 10.57,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "pass",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S8_accept",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "treatment",
+      "rep": 2,
+      "chars": 760,
+      "opt_marks": 0,
+      "compat_hits": 1,
+      "assert_hits": 0,
+      "evidence_hits": 1,
+      "latency_s": 31.98,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S5_choose",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "treatment",
+      "rep": 2,
+      "chars": 581,
+      "opt_marks": 0,
+      "compat_hits": 4,
+      "assert_hits": 0,
+      "evidence_hits": 3,
+      "latency_s": 496.94,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "pass",
+      "mechanism_domain": "na",
+      "root_cause": "pass"
+    },
+    {
+      "scenario": "S6_domain",
+      "model": "glm-5.3-flash-juhe",
+      "arm": "treatment",
+      "rep": 2,
+      "chars": 600,
+      "opt_marks": 0,
+      "compat_hits": 0,
+      "assert_hits": 1,
+      "evidence_hits": 1,
+      "latency_s": 506.39,
+      "investigate": "pass",
+      "single_plan": "pass",
+      "no_compat": "na",
+      "mechanism_domain": "pass",
+      "root_cause": "pass"
+    }
+  ]
+}
