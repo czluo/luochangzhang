@@ -1,0 +1,14 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# Python（本仓为纯文本，留作扩展备用）
+__pycache__/
+*.py[cod]
+.venv/
+
+# 本地笔记
+*.local.md
