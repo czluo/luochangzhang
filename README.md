@@ -33,7 +33,7 @@ AI 写代码很少"写不出来"，更多是**判断错位**：
 **CodeBuddy / Claude Code（skills 目录）**
 
 ```bash
-git clone https://github.com/<you>/materialist-dev.git ~/.codebuddy/skills/materialist-dev
+git clone https://github.com/czluo/luochangzhang.git ~/.codebuddy/skills/materialist-dev
 # Claude Code: ~/.claude/skills/materialist-dev
 # 项目内共用: <repo>/.codebuddy/skills/materialist-dev
 ```
@@ -41,7 +41,7 @@ git clone https://github.com/<you>/materialist-dev.git ~/.codebuddy/skills/mater
 Windows（PowerShell）：
 
 ```powershell
-git clone https://github.com/<you>/materialist-dev.git "$HOME\.codebuddy\skills\materialist-dev"
+git clone https://github.com/czluo/luochangzhang.git "$HOME\.codebuddy\skills\materialist-dev"
 ```
 
 **其他工具（Cursor / Cline / 自建 Agent）**

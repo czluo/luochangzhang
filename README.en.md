@@ -32,7 +32,7 @@ AI rarely fails at writing code; it fails at **judgement placement**:
 **CodeBuddy / Claude Code (skills directory)**
 
 ```bash
-git clone https://github.com/<you>/materialist-dev.git ~/.codebuddy/skills/materialist-dev
+git clone https://github.com/czluo/luochangzhang.git ~/.codebuddy/skills/materialist-dev
 # Claude Code: ~/.claude/skills/materialist-dev
 # Shared inside a project: <repo>/.codebuddy/skills/materialist-dev
 ```
@@ -40,7 +40,7 @@ git clone https://github.com/<you>/materialist-dev.git ~/.codebuddy/skills/mater
 Windows (PowerShell):
 
 ```powershell
-git clone https://github.com/<you>/materialist-dev.git "$HOME\.codebuddy\skills\materialist-dev"
+git clone https://github.com/czluo/luochangzhang.git "$HOME\.codebuddy\skills\materialist-dev"
 ```
 
 **Other tools (Cursor / Cline / custom agents)**
