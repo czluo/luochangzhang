@@ -1,7 +1,8 @@
 # materialist-dev · 原则1.1
 
 > 给 AI 编码助手的**疑难技术决策**把关 skill：先调查再发言、抓主要矛盾彻底解决、定位真身、把个案升为规律。
-> 别称「原则1.1」。中文正文，无需运行环境，纯文本即插即用。
+> 别称「原则1.1」。无需运行环境，纯文本即插即用。
+> 📖 English: [README.en.md](README.en.md) · 英文版 skill：[SKILL.en.md](SKILL.en.md) + [references/01-principles.en.md](references/01-principles.en.md)
 
 ## 它治什么病
 
@@ -69,11 +70,16 @@ git clone https://github.com/<you>/materialist-dev.git "$HOME\.codebuddy\skills\
 
 ```
 materialist-dev/
-├── SKILL.md                     # 索引层：心智锚 + 场景→锚句 + 三项无条件动作
+├── SKILL.md                     # 索引层（中文）：心智锚 + 场景→锚句 + 三项无条件动作
+├── SKILL.en.md                  # 索引层（英文）
 ├── references/
-│   └── 01-principles.md         # 真身：§1 路线 · §2 前提 · §3-§5 三原则 · §6 变种 · §7 抽查
+│   ├── 01-principles.md         # 真身（中文）：§1 路线 · §2 前提 · §3-§5 三原则 · §6 变种 · §7 抽查
+│   └── 01-principles.en.md      # 真身（英文）
+├── README.md / README.en.md
 └── LICENSE
 ```
+
+**语言选择**：中文用 `SKILL.md` + `references/01-principles.md`；英文用 `SKILL.en.md` + `references/01-principles.en.md`。两者判据等价，按模型语种适应度装其一即可。
 
 ## 它不是什么
 
